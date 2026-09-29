@@ -19,7 +19,7 @@
   --tinta:#18181B;--tinta2:#52525B;--tinta3:#71717A;
   --vidro-borda:rgba(0,0,0,.12);--chapa:#fff;--gold-bg:rgba(239,191,78,.1);
   /* superfícies e linhas: trocadas em bloco no modo escuro */
-  --sup:rgba(255,255,255,.66);--sup-forte:rgba(255,255,255,.86);--trilho-bg:rgba(255,255,255,.55);
+  --sup:rgba(255,255,255,.66);--sup-forte:rgba(255,255,255,.86);--trilho-bg:rgba(255,255,255,.55);--trilho-aberto:rgba(255,255,255,.92);
   --hover:rgba(0,0,0,.04);--linha2:rgba(0,0,0,.07);--linha-f:rgba(0,0,0,.16);
   --rot-veu:rgba(255,255,255,.92);--malha:rgba(24,24,27,.05);--trilha-bg:rgba(24,24,27,.08);
   --carta-borda:rgba(24,24,27,.17);
@@ -29,16 +29,16 @@
   --grad-escuro:#17171a;
   --display:'Anek Latin',system-ui,sans-serif;--corpo:'Satoshi','Roboto',system-ui,-apple-system,sans-serif;
   --cta:'Sora',var(--corpo);--mono:'JetBrains Mono',ui-monospace,monospace;
-  --trilho:270px;--mola:cubic-bezier(.2,.7,.3,1);
+  --trilho:270px;--trilho-rec:74px;--mola:cubic-bezier(.2,.7,.3,1);
 }
-body.recolhido{--trilho:74px}
+body.recolhido{--trilho:var(--trilho-rec)}
 
 /* modo escuro: só troca os tokens, o resto do CSS não muda */
 body.escuro{
   --tinta:#F4F4F5;--tinta2:#A1A1AA;--tinta3:#8B8B93;
   --gold-deep:#E5AE38;
   --vidro-borda:rgba(255,255,255,.12);--chapa:#1b1c1f;--gold-bg:rgba(239,191,78,.13);
-  --sup:rgba(255,255,255,.06);--sup-forte:rgba(255,255,255,.11);--trilho-bg:rgba(24,24,27,.72);
+  --sup:rgba(255,255,255,.06);--sup-forte:rgba(255,255,255,.11);--trilho-bg:rgba(24,24,27,.72);--trilho-aberto:rgba(24,24,27,.94);
   --hover:rgba(255,255,255,.07);--linha2:rgba(255,255,255,.09);--linha-f:rgba(255,255,255,.22);
   --rot-veu:rgba(12,12,14,.94);--malha:rgba(255,255,255,.05);--trilha-bg:rgba(255,255,255,.11);
   --carta-borda:rgba(255,255,255,.16);
@@ -57,23 +57,21 @@ html,body{height:100%}
 body{margin:0;background:var(--fundo);background-attachment:fixed;color:var(--tinta);font-family:var(--corpo);-webkit-font-smoothing:antialiased;overflow:hidden}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.app{display:grid;grid-template-columns:auto minmax(0,1fr);height:100vh}
+.app{display:grid;grid-template-columns:var(--trilho-rec) minmax(0,1fr);height:100vh}
 
 /* ============================================================
-   3. SIDEBAR (trilho) - expandida e recolhida
+   3. SIDEBAR (trilho) - recolhida por padrão, abre com o mouse
+   Aberto, o trilho passa por cima do palco em vez de empurrá-lo.
    ============================================================ */
-.trilho{width:var(--trilho);background:var(--trilho-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--vidro-borda);display:flex;flex-direction:column;overflow:hidden;transition:width .28s var(--mola)}
+.trilho{position:relative;z-index:30;width:var(--trilho);background:var(--trilho-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-right:1px solid var(--vidro-borda);display:flex;flex-direction:column;overflow:hidden;transition:width .28s var(--mola),box-shadow .28s,background .28s}
+body:not(.recolhido) .trilho{background:var(--trilho-aberto);box-shadow:18px 0 50px -20px rgba(0,0,0,.35)}
 .marca{display:flex;align-items:center;gap:11px;padding:18px 14px 16px;border-bottom:1px solid var(--vidro-borda);min-height:73px}
 .selo{flex:none;width:42px;height:auto;display:block}
 .marca-txt{flex:1;min-width:0;overflow:hidden}
 .marca-txt b{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em;display:block;color:var(--tinta);white-space:nowrap}
 .marca-txt span{font-family:var(--cta);font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);white-space:nowrap}
-.dobra{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:3px;color:var(--tinta3);transition:.18s}
-.dobra:hover{background:var(--hover);color:var(--tinta)}
-.dobra svg{transition:transform .28s var(--mola)}
 body.recolhido .marca{flex-direction:column;gap:10px;padding:14px 8px}
 body.recolhido .marca-txt{display:none}
-body.recolhido .dobra svg{transform:rotate(180deg)}
 
 .nav{flex:1;overflow-y:auto;overflow-x:hidden;padding:10px 11px 8px;scrollbar-width:thin}
 .nav::-webkit-scrollbar{width:6px}
@@ -102,7 +100,9 @@ body.recolhido .item .rot{display:none}
 body.recolhido .item .tecla{min-width:26px;height:26px;font-size:11px}
 
 .rodape{border-top:1px solid var(--vidro-borda);padding:9px 11px;display:flex;flex-direction:column;gap:2px}
-.fbtn{display:flex;align-items:center;gap:10px;width:100%;padding:8px 9px;border-radius:3px;color:var(--tinta2);font-family:var(--display);font-weight:500;font-size:12.5px;transition:background .16s,color .16s}
+.fbtn{display:flex;align-items:center;gap:10px;width:100%;padding:8px 9px;border-radius:3px;color:var(--tinta2);font-family:var(--display);font-weight:500;font-size:12.5px;text-decoration:none;transition:background .16s,color .16s}
+.fbtn.pdf{color:var(--gold-deep)}
+.fbtn.pdf:hover{background:var(--gold-bg);color:var(--gold-deep)}
 .fbtn:hover{background:var(--hover);color:var(--tinta)}
 .fbtn svg{flex:none}
 .fbtn-rot{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -224,6 +224,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,4vw,56px);lin
 .quadro .brief b{display:block;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:9.5px;margin-bottom:9px}
 .faixa{position:absolute;left:0;right:0;bottom:0;padding:48px 56px 44px;background:linear-gradient(0deg,#18181b 8%,rgba(24,24,27,.72) 55%,transparent)}
 .faixa h1{color:#fff}
+.baixar{align-self:center;display:inline-flex;align-items:center;gap:9px;margin-top:28px;padding:13px 22px;border-radius:3px;background:var(--gold);color:#18181b;font-family:var(--cta);font-weight:700;font-size:13px;letter-spacing:.02em;text-decoration:none;box-shadow:0 14px 34px -14px rgba(239,191,78,.7);transition:transform .22s var(--mola),background .22s,box-shadow .22s}
+.baixar:hover{background:#F5CD6A;transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(239,191,78,.85)}
+.tela.ativa .quadro.foco .baixar{animation:surge .7s var(--mola) .6s backwards}
 .faixa .legenda{margin:15px 0 0;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72);max-width:56ch}
 .legenda{font-size:16px;line-height:1.6;color:var(--tinta2);margin:14px 0 0;max-width:56ch}
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
@@ -517,13 +520,16 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
   body.gaveta .trilho{transform:none}
   body.gaveta .fundo{opacity:1;pointer-events:auto}
   body.recolhido{--trilho:270px}
+  body:not(.recolhido) .trilho{box-shadow:0 0 50px rgba(0,0,0,.25)}
   body.recolhido .marca{flex-direction:row;padding:18px 14px 16px}
   body.recolhido .marca-txt,body.recolhido .atalhos{display:block}
   body.recolhido .item{justify-content:flex-start;padding:8px 9px}
   body.recolhido .item .rot{display:block}
   body.recolhido .grupo{font-size:9.5px;padding:14px 8px 6px}
   body.recolhido .grupo::before{display:none}
-  .dobra{display:none}
+  body.recolhido .rodape{padding:9px 11px;align-items:stretch}
+  body.recolhido .fbtn{justify-content:flex-start;padding:8px 9px}
+  body.recolhido .fbtn-rot{display:inline}
   .topo{display:flex;position:sticky;top:0;z-index:20}
   .palco{overflow:visible}
   .progresso{display:none}
@@ -571,12 +577,13 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <div class="marca">
       <img class="selo" src="olho-amarelo.svg" alt="" width="42" height="27">
       <div class="marca-txt"><b>AUVP Escola</b><span>Apresentação geral</span></div>
-      <button class="dobra" id="dobra" aria-label="Recolher menu" aria-expanded="true" title="Recolher menu ( [ )">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5 8.5 12l6 6.5"/></svg>
-      </button>
     </div>
     <nav class="nav" id="nav" aria-label="Seções da apresentação"></nav>
     <div class="rodape">
+      <a class="fbtn pdf" href="AUVP%20Escola%20-%202026.pdf" download="AUVP Escola - 2026.pdf" target="_blank" rel="noopener" title="Baixar a apresentação em PDF">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11.2M7.4 10.2 12 14.8l4.6-4.6M4.5 16.5v2.2a1.8 1.8 0 0 0 1.8 1.8h11.4a1.8 1.8 0 0 0 1.8-1.8v-2.2"/></svg>
+        <span class="fbtn-rot">Baixar PDF</span>
+      </a>
       <button class="fbtn" id="btn-ajuda" aria-label="Como navegar" aria-expanded="false" title="Como navegar">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 1 1 3.4 3.1c-.6.2-.9.7-.9 1.3v.4"/><path d="M12 17.2h.01"/></svg>
         <span class="fbtn-rot">Como navegar</span>
@@ -701,6 +708,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <section class="tela" id="t17"><div class="quadro midia foco in">
       <img class="bg" src="DSC01355-2560.webp" alt="" decoding="async" fetchpriority="low">
       <div class="faixa" style="text-align:center"><p class="kicker">Bem-vindo à AUVP</p>        <h1 class="copy" data-slot="titulo" style="margin:0 auto;max-width:24ch">Vamos juntos construir sua liberdade financeira.</h1>
+        <a class="baixar" href="AUVP%20Escola%20-%202026.pdf" download="AUVP Escola - 2026.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11.2M7.4 10.2 12 14.8l4.6-4.6M4.5 16.5v2.2a1.8 1.8 0 0 0 1.8 1.8h11.4a1.8 1.8 0 0 0 1.8-1.8v-2.2"/></svg>Baixar a apresentação em PDF</a>
       </div></div></section>
     </main>
 </div>
@@ -712,7 +720,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <li><span><kbd>&larr;</kbd><kbd>&rarr;</kbd></span>Seção anterior e próxima, na ordem da apresentação</li>
     <li><span><kbd>1</kbd></span>Cada seção tem o número que aparece ao lado do nome no menu</li>
     <li><span><kbd>Esc</kbd></span>Fecha o que estiver aberto: card, imagem ou menu</li>
-    <li><span><kbd>[</kbd></span>Recolhe e expande o menu lateral</li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14M9 12h11M15.5 7.5 20 12l-4.5 4.5"/></svg></span>Passe o mouse no menu à esquerda para abri-lo</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="M15.2 15.2 20 20"/></svg></span>Tags com lupa abrem uma imagem ali mesmo</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 6l6 6-6 6"/></svg></span>Tags com seta levam a outra seção; cards abrem o link em nova aba</li>
   </ul>
@@ -769,7 +777,7 @@ const ECOS=[
    itens:[
     {t:'Módulos Avançados',d:'Análise de Setores, Geopolítica, Indicadores e Aulas Técnicas para quem quer ir além da grade principal.',img:'modulos avançados.jpg'},
     {t:'Ferramentas',d:'Quatro ferramentas próprias para apoiar seus estudos e a gestão da carteira.',img:'https://raw.githubusercontent.com/design-auvp/projetodelta/main/Analise-de-ações-e-indicadores-AUVP-Analítica.png',topo:true,alt:'trilha pro.png'},
-    {t:'Atualização de Mercado - Semanais',d:'Toda segunda-feira, às 19h, ao vivo com o Raul Sena comentando o que mexeu com o mercado.',img:'lives.jpg'},
+    {t:'Atualização de Mercado - Semanal',d:'Toda segunda-feira, às 19h, ao vivo com o Raul Sena comentando o que mexeu com o mercado.',img:'lives.jpg'},
     {t:'A Escola',d:'O treinamento completo da AUVP: mais de 100 aulas, sete módulos para você ir do zero à liberdade financeira.',img:'raul explicativo.png',alt:'aulas att.png'},
     {t:'Módulo Internacional',d:'Aprenda sobre Renda Fixa Internacional, stocks, REITs e Private Equity: como investir fora do Brasil.',img:'https://www.remessaonline.com.br/blog/wp-content/uploads/2024/07/como-investir-no-exterior.jpg',alt:'internacional.jpg'}
    ]},
@@ -892,7 +900,6 @@ window.addEventListener('hashchange',function(){
 /* ============================================================
    TRILHO RECOLHÍVEL + GAVETA NO MOBILE
    ============================================================ */
-const CHAVE='auvp:trilho';
 const dica=$('#dica');
 function guarda(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 function le(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -900,15 +907,31 @@ function escondeDica(){dica.classList.remove('ver')}
 
 function recolher(v){
   document.body.classList.toggle('recolhido',v);
-  var d=$('#dobra');
-  d.setAttribute('aria-expanded',String(!v));
-  d.setAttribute('aria-label',v?'Expandir menu':'Recolher menu');
-  d.title=(v?'Expandir menu':'Recolher menu')+' ( [ )';
-  guarda(CHAVE,v?'1':'0');
   if(!v)escondeDica();
 }
-recolher(le(CHAVE)==='1');
-$('#dobra').addEventListener('click',function(){recolher(!document.body.classList.contains('recolhido'))});
+/* recolhido por padrão: abre com o mouse sobre o trilho (ou com o foco
+   do teclado) e volta a fechar quando ele sai. A folga no fechamento
+   evita que o menu pisque quando o mouse passa rente à borda. */
+const trilho=$('#trilho');
+let tFecha=0;
+function fechaTrilho(){
+  clearTimeout(tFecha);
+  tFecha=setTimeout(function(){
+    if(trilho.matches(':hover')||ajuda.classList.contains('ver'))return;
+    if(trilho.contains(document.activeElement)&&document.activeElement.matches(':focus-visible'))return;
+    recolher(true);
+  },160);
+}
+recolher(true);
+trilho.addEventListener('mouseenter',function(){
+  if(window.innerWidth<=860)return;
+  clearTimeout(tFecha);recolher(false);
+});
+trilho.addEventListener('mouseleave',fechaTrilho);
+trilho.addEventListener('focusin',function(e){
+  if(window.innerWidth>860&&e.target.matches(':focus-visible')){clearTimeout(tFecha);recolher(false)}
+});
+trilho.addEventListener('focusout',fechaTrilho);
 
 function gaveta(v){
   document.body.classList.toggle('gaveta',v);
@@ -942,7 +965,7 @@ function posAjuda(){
 function abreAjuda(v){
   ajuda.classList.toggle('ver',v);
   btnAjuda.setAttribute('aria-expanded',String(v));
-  if(v)posAjuda();
+  if(v)posAjuda();else fechaTrilho();
 }
 btnAjuda.addEventListener('click',function(e){e.stopPropagation();abreAjuda(!ajuda.classList.contains('ver'))});
 document.addEventListener('click',function(e){
@@ -1041,7 +1064,6 @@ document.addEventListener('keydown',function(e){
   if(alvo&&(alvo.isContentEditable||/^(input|textarea|select)$/i.test(alvo.tagName)))return;
   var k=e.key.toLowerCase();
   if(k==='escape'){escondeDica();if(ajuda.classList.contains('ver')){abreAjuda(false);return}if(cena.classList.contains('ver')){fechaVisor();return}if(ecoCena.classList.contains('ver')){fechaEcoModal();return}if(document.body.classList.contains('gaveta')){gaveta(false)}return}
-  if(k==='['||k===']'){recolher(!document.body.classList.contains('recolhido'));return}
   if(k==='arrowright'){passo(1);return}
   if(k==='arrowleft'){passo(-1);return}
   /* o sumário passa de dez telas: um dígito leva na hora, e um segundo logo
