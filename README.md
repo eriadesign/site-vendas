@@ -5,8 +5,8 @@ com as imagens, vídeos e logos ao lado. Não tem build nem dependência: basta
 abrir o `index.htm` no navegador.
 
 Navegação: setas `←` `→` entre seções, `H` ou `Esc` para a Home. O menu lateral
-fica recolhido e abre ao passar o mouse sobre ele; cada seção tem sua tecla,
-mostrada ao lado do nome no menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
+abre pelo ícone ☰ no canto superior esquerdo (basta passar o mouse); as teclas
+de 1 a 10 levam direto a cada seção, na ordem do menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
 pode ser baixada pelo menu lateral e pelo botão no fim da apresentação.
 
 ## Versões
