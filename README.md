@@ -6,7 +6,7 @@ abrir o `index.htm` no navegador.
 
 Navegação: setas `←` `→` entre seções, `H` ou `Esc` para a Home. O menu lateral
 abre pelo ícone ☰ no canto superior esquerdo (basta passar o mouse); as teclas
-de 1 a 10 levam direto a cada seção, na ordem do menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
+de 1 a 9 levam direto a cada seção, na ordem do menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
 pode ser baixada pelo menu lateral e pelo botão no fim da apresentação.
 
 ## Versões

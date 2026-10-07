@@ -283,23 +283,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 .calc-todas{align-self:center;margin-top:20px;display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border:1px solid rgba(239,191,78,.4);border-radius:3px;background:var(--gold-bg);font-size:13px;font-weight:600;color:var(--gold-deep);text-decoration:none;transition:border-color .25s,background .25s}
 .calc-todas:hover{border-color:var(--gold);background:rgba(239,191,78,.18)}
 .acesso{position:absolute;top:16px;right:16px;font-family:var(--cta);font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#09090b;background:var(--gold);padding:4px 9px;border-radius:3px}
-/* novidades: régua de números e grade de entregas, no mesmo desenho
-   reto e com filete dourado do resto da apresentação */
-.nov-stats{display:flex;flex-wrap:wrap;align-items:baseline;gap:0;margin-bottom:30px;border-top:1px solid var(--linha2);border-bottom:1px solid var(--linha2);padding:18px 0}
-.nov-stat{flex:1;min-width:190px;padding:2px 26px;display:flex;align-items:baseline;gap:12px;animation:sobe .44s var(--mola) backwards;animation-delay:calc(var(--j,0)*70ms + 90ms)}
-.nov-stat+.nov-stat{border-left:1px solid var(--linha2)}
-.nov-stat:first-child{padding-left:0}
-.nov-stat b{flex:none;font-family:var(--display);font-weight:700;font-size:clamp(28px,3.1vw,40px);line-height:1;letter-spacing:-.03em;color:var(--gold-deep)}
-.nov-stat span{font-size:12.5px;line-height:1.35;color:var(--tinta2)}
-.nov-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ncard{position:relative;border-radius:3px;display:flex;flex-direction:column;background:var(--sup);border:1px solid var(--vidro-borda);overflow:hidden;overflow:clip;text-decoration:none;color:inherit;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;animation:sobe .44s var(--mola) backwards;animation-delay:calc(var(--j,0)*60ms + 180ms)}
-.ncard.tem-link:hover{transform:translateY(-4px);border-color:rgba(239,191,78,.5);box-shadow:0 12px 28px rgba(0,0,0,.08)}
-.ncard-img{width:100%;aspect-ratio:960/476;object-fit:cover;display:block;background:#09090b}
-.ncard-corpo{display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;flex:1}
-.ncard-q{font-family:var(--cta);font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
-.ncard h3{margin:0;font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2;letter-spacing:-.015em;color:var(--tinta)}
-.ncard p{margin:0;font-size:12.5px;line-height:1.55;color:var(--tinta2)}
-.ncard-link{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--gold-deep)}
 /* ecossistema: um núcleo e duas frentes. O olho no meio, ligado por um
    fio a cada frente; cada frente é um disco com os seus produtos em
    volta, como satélites. O ângulo de cada satélite vem inline (--a) e
@@ -532,7 +515,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
   .eorb-img{grid-column:1;grid-row:1/3;width:64px;height:64px}
   .eorb small{display:block;grid-column:2;grid-row:2;font-size:12.5px;line-height:1.4;color:var(--tinta3)}
   .avancados{grid-template-columns:1fr}
-  .nov-stats,.nov-grade{grid-template-columns:1fr}
   .grade,.g-2,.g-3,.g-4{grid-template-columns:1fr}
   .mcard-head{flex-direction:column;gap:14px}.medalhao{width:100%;min-height:88px}
   .medalhao.capa{width:100%;min-height:0}
@@ -671,13 +653,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 
 
 
-    <section class="tela" id="tnov"><div class="galeria in">
-      <div class="cab"><h1>O que mudou na AUVP em 2026?</h1>
-        <p class="crono-sub">A Escola se atualiza mês a mês com conteúdos novos, ferramentas novas e melhorias pedidas pela comunidade. Estas são as entregas mais recentes.</p></div>
-      <div class="nov-stats" id="nov-stats"></div>
-      <div class="nov-grade" id="nov-grade"></div>
-    </div></section>
-
     <section class="tela" id="t17"><div class="quadro midia foco in">
       <img class="bg" src="DSC01355-2560.webp" alt="" decoding="async" fetchpriority="low">
       <div class="faixa" style="text-align:center"><p class="kicker">Bem-vindo à AUVP</p>        <h1 class="copy" data-slot="titulo" style="margin:0 auto;max-width:24ch">Vamos juntos construir sua liberdade financeira.</h1>
@@ -690,7 +665,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
   <b>Como navegar</b>
   <ul>
     <li><span><kbd>&larr;</kbd><kbd>&rarr;</kbd></span>Seção anterior e próxima, na ordem da apresentação</li>
-    <li><span><kbd>1</kbd></span>Números de 1 a 10 levam direto a cada seção, na ordem do menu</li>
+    <li><span><kbd>1</kbd></span>Números de 1 a 9 levam direto a cada seção, na ordem do menu</li>
     <li><span><kbd>Esc</kbd></span>Fecha o que estiver aberto: card, imagem ou menu</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>O ícone de menu no canto superior esquerdo abre as seções</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="M15.2 15.2 20 20"/></svg></span>Tags com lupa abrem uma imagem ali mesmo</li>
@@ -726,17 +701,14 @@ const NAV=[
   ]],
   ['O Produto',[
     ['t3','A Escola','3'],
-    ['t4','Dinâmica das aulas','4'],
-    ['t5','Módulos do treinamento','5'],
+    ['t5','Módulos do treinamento','4'],
+    ['t4','Dinâmica das aulas','5'],
     ['tmat','Materiais de apoio','6'],
     ['t6','Ferramentas','7'],
     ['t7','Lives, comunidade e app','8']
   ]],
-  ['Novidades',[
-    ['tnov','O que mudou em 2026','9']
-  ]],
   ['Fechamento',[
-    ['t17','Boas-vindas','10']
+    ['t17','Boas-vindas','9']
   ]]
 ];
 
@@ -1163,36 +1135,6 @@ document.getElementById('ferramentas').innerHTML=FERR.map(function(f){
     +(f.url?'<span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span>':'')
     +'<div class="rot"><b>'+esc(f.t)+'</b><small>'+esc(f.d)+'</small></div></'+tag+'>';
 }).join('');
-/* ---------- novidades ----------
-   Vem da LP da Escola (ProdutosAUVP/lp-auvp-escola-prod, dobra
-   "novidades"), com os números e os cards de lá. */
-const NOV_STATS=[
-  {n:'+40',t:'novidades liberadas em 2026'},
-  {n:'100%',t:'das aulas do treinamento regravadas'},
-  {n:'Todo mês',t:'uma nova leva de atualizações'}
-];
-const NOV=[
-  {q:'Julho · 2026',t:'Minha AUVP',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/minha-auvp.webp',d:'A sua nova casa com tudo sobre nosso ecossistema. Um ambiente moderno que concentra o seu treinamento e todas as soluções da AUVP a um clique de distância.',url:'https://minha.auvp.com.br/'},
-  {q:'Julho · 2026',t:'ETFs AUVP',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/etfs.webp',d:'Lançamos o ABTC11, o primeiro ETF do mercado a unir Bitcoin e Renda Fixa, além de um site com a metodologia e composição de todos os nossos fundos abertas para você.',url:'https://www.auvpetfs.com.br/'},
-  {q:'Julho · 2026',t:'Módulo da AUVP Analítica',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/modulo-analitica.webp',d:'Compartilhamos um novo módulo inteiro na Escola, totalmente dedicado a ensinar como você pode extrair o potencial máximo da nossa ferramenta de análise fundamentalista.'},
-  {q:'Julho · 2026',t:'Carteiras recomendadas',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/carteiras.webp',d:'Nosso app exclusivo para membros agora possui 4 carteiras recomendadas com nossa metodologia, pensadas para atender cada fase da sua vida financeira.'},
-  {q:'Junho · 2026',t:'Escola 100% regravada',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/escola-regravada.webp',d:'Revisamos a estrutura do treinamento e regravamos todas as aulas, garantindo conteúdo alinhado com o mercado para facilitar seus estudos.'},
-  {q:'Abril · 2026',t:'Módulo bônus de criptomoedas',img:'https://cdn.asupernova.com.br/LP%20AUVP%20ESCOLA/cripto.webp',d:'Para além do treinamento com 7 módulos, liberamos um módulo completo explicando tudo sobre o mercado cripto do zero.'}
-];
-document.getElementById('nov-stats').innerHTML=NOV_STATS.map(function(x,i){
-  return '<div class="nov-stat" style="--j:'+i+'"><b>'+esc(x.n)+'</b><span>'+esc(x.t)+'</span></div>';
-}).join('');
-document.getElementById('nov-grade').innerHTML=NOV.map(function(c,i){
-  var tag=c.url?'a':'article';
-  var atr=c.url?' href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer"':'';
-  return '<'+tag+' class="ncard'+(c.url?' tem-link':'')+'"'+atr+' style="--j:'+i+'">'
-    +'<img class="ncard-img" src="'+esc(c.img)+'" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
-    +'<span class="ncard-corpo"><span class="ncard-q">'+esc(c.q)+'</span>'
-    +'<h3>'+esc(c.t)+'</h3><p>'+esc(c.d)+'</p>'
-    +(c.url?'<span class="ncard-link">Conhecer<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span>':'')
-    +'</span></'+tag+'>';
-}).join('');
-
 /* ---------- ecossistema: sistema solar ----------
    Anéis pontilhados concêntricos com o olho no centro e os itens
    pousados neles: a frente Educacional ocupa o arco da esquerda, a
