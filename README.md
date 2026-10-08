@@ -9,6 +9,21 @@ abre pelo ícone ☰ no canto superior esquerdo (basta passar o mouse); as tecla
 de 1 a 9 levam direto a cada seção, na ordem do menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
 pode ser baixada pelo menu lateral e pelo botão no fim da apresentação.
 
+## PDF de download
+
+O `AUVP Escola - 2026.pdf` é um guia em A4 que reúne as informações da
+apresentação e do material de apoio. A fonte dele é `pdf/guia-auvp-escola.htm`
+(com as fotos já otimizadas em `pdf/img/`). Para mudar o texto, edite esse
+arquivo e gere o PDF de novo com o Chrome, rodando no PowerShell a partir da
+pasta do repositório (o Chrome precisa dos caminhos completos):
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --no-pdf-header-footer --virtual-time-budget=15000 "--print-to-pdf=$PWD\AUVP Escola - 2026.pdf" "$PWD\pdf\guia-auvp-escola.htm"
+```
+
+Ou abra o `pdf/guia-auvp-escola.htm` no Chrome, `Ctrl+P` → Salvar como PDF,
+com margens "Nenhuma" e "Gráficos de plano de fundo" marcado.
+
 ## Versões
 
 | Versão | Onde está | Commit |

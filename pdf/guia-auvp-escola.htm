@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>AUVP Escola - 2026</title>
+<!-- Fonte do PDF de download (AUVP Escola - 2026.pdf). Diagramado em A4 para
+     impressão: reúne as informações da apresentação (index.htm) e do material
+     de apoio. Para gerar o PDF, ver o README. -->
+<link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Satoshi';src:url('../fonts/Satoshi-Variable.woff2') format('woff2');font-weight:300 900}
+@page{size:A4;margin:0}
+:root{
+  --gold:#EFBF4E;--gold-esc:#D4A73D;--gold-deep:#B8860B;--gold-bg:#FCF5E3;
+  --tinta:#18181B;--tinta2:#52525B;--tinta3:#71717A;--linha:#E4E4E7;--fundo:#F7F7F8;--noite:#0E0E10;
+  --display:'Anek Latin',system-ui,sans-serif;--corpo:'Satoshi',system-ui,sans-serif;--cta:'Sora',var(--corpo);
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#fff;color:var(--tinta);font-family:var(--corpo);font-size:9.6pt;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;margin:0;line-height:1.05}
+p{margin:0}
+
+/* ---------- página ---------- */
+.pg{position:relative;width:210mm;height:297mm;overflow:hidden;page-break-after:always;break-after:page;padding:20mm 18mm 18mm}
+.pg:last-child{page-break-after:auto;break-after:auto}
+.rodape{position:absolute;left:18mm;right:18mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center;font-family:var(--cta);font-weight:600;font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta3)}
+.rodape img{height:9pt}
+.escura .rodape{color:rgba(255,255,255,.55)}
+
+.kicker{font-family:var(--cta);font-weight:700;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:3.5mm;display:flex;align-items:center;gap:2.5mm}
+.kicker::before{content:"";width:7mm;height:1.2pt;background:var(--gold)}
+.titulo{font-size:27pt;font-weight:700;max-width:150mm}
+.titulo .d{color:var(--gold-deep)}
+.lead{font-size:11pt;line-height:1.55;color:var(--tinta2);margin-top:4mm;max-width:150mm}
+.secao{margin-top:9mm}
+.secao>h2{font-size:15pt;font-weight:700;margin-bottom:4mm}
+.nota{font-size:7.5pt;color:var(--tinta3);margin-top:2.5mm}
+
+/* ---------- capa ---------- */
+.capa{padding:0;background:var(--noite);color:#fff}
+.capa .foto{position:absolute;inset:0;background:url('img/capa.jpg') center 40%/cover}
+.capa .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,16,.55) 0%,rgba(14,14,16,.15) 30%,rgba(14,14,16,.7) 62%,rgba(14,14,16,.97) 86%)}
+.capa .topo{position:absolute;top:16mm;left:18mm;right:18mm;display:flex;align-items:center;gap:3.5mm}
+.capa .topo img{width:15mm}
+.capa .topo b{font-family:var(--display);font-size:16pt;letter-spacing:-.02em}
+.capa .topo span{display:block;font-family:var(--cta);font-weight:700;font-size:6.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.capa .miolo{position:absolute;left:18mm;right:18mm;bottom:30mm}
+.capa .kicker{color:var(--gold)}
+.capa h1{font-size:38pt;font-weight:700;max-width:165mm}
+.capa h1 .d{color:var(--gold)}
+.capa .sub{margin-top:6mm;font-size:12pt;line-height:1.5;color:rgba(255,255,255,.78);max-width:135mm}
+.capa .rodape{color:rgba(255,255,255,.55)}
+
+/* ---------- números ---------- */
+.numeros{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);margin-top:8mm}
+.numeros div{padding:5mm 4mm 5mm 0}
+.numeros div+div{border-left:1px solid var(--linha);padding-left:4mm}
+.numeros b{display:block;font-family:var(--display);font-weight:700;font-size:22pt;line-height:1;color:var(--gold-deep);letter-spacing:-.03em}
+.numeros span{display:block;margin-top:2mm;font-size:8pt;line-height:1.35;color:var(--tinta2)}
+
+/* ---------- cartões e listas ---------- */
+.grade{display:grid;gap:4mm}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.cartao{border:1px solid var(--linha);border-top:2pt solid var(--gold);background:#fff;padding:4.5mm 4.5mm 5mm}
+.cartao h3{font-size:11.5pt;font-weight:700;margin-bottom:1.8mm}
+.cartao p{font-size:8.6pt;line-height:1.5;color:var(--tinta2)}
+.cartao .meta{display:inline-block;margin-bottom:2mm;font-family:var(--cta);font-weight:700;font-size:6.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-bg);padding:1mm 2mm}
+.ic{width:8mm;height:8mm;display:grid;place-items:center;background:var(--gold-bg);color:var(--gold-deep);margin-bottom:3mm}
+.ic svg{width:4.6mm;height:4.6mm}
+
+.perfis{display:grid;gap:3mm}
+.perfil{display:grid;grid-template-columns:13mm 1fr;gap:3mm;align-items:start;padding:3.5mm 0;border-bottom:1px solid var(--linha)}
+.perfil:last-child{border-bottom:0}
+.perfil i{font-style:normal;font-family:var(--display);font-weight:700;font-size:19pt;line-height:1;color:var(--gold)}
+.perfil b{display:block;font-family:var(--display);font-size:11.5pt;margin-bottom:1mm}
+.perfil p{color:var(--tinta2);font-size:9pt}
+
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.pilar{background:var(--fundo);padding:5mm}
+.pilar b{display:block;font-family:var(--display);font-weight:700;font-size:20pt;line-height:1;color:var(--tinta);margin-bottom:2mm}
+.pilar b small{font-size:10pt;color:var(--gold-deep);font-weight:600}
+.pilar p{font-size:8.6pt;color:var(--tinta2)}
+
+/* ---------- cronograma ---------- */
+.crono{width:100%;border-collapse:collapse;margin-top:4mm}
+.crono th{font-family:var(--cta);font-weight:700;font-size:6.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta3);text-align:left;padding:0 3mm 2.5mm 0;border-bottom:1.2pt solid var(--tinta)}
+.crono td{padding:2.8mm 3mm 2.8mm 0;border-bottom:1px solid var(--linha);vertical-align:top}
+.crono .n{width:15mm;font-family:var(--display);font-weight:700;font-size:15pt;line-height:1;color:var(--gold)}
+.crono .n small{display:block;font-family:var(--cta);font-size:5.5pt;letter-spacing:.12em;color:var(--tinta3);margin-top:1mm}
+.crono .mod b{display:block;font-family:var(--display);font-size:11.5pt;line-height:1.15;margin-bottom:1mm}
+.crono .mod p{font-size:8.3pt;line-height:1.45;color:var(--tinta2)}
+.crono .mod em{display:block;font-style:normal;font-size:7.4pt;color:var(--tinta3);margin-top:1.2mm}
+.crono .mod em::before{content:"+ ";color:var(--gold-deep);font-weight:700}
+.crono .q{width:24mm;font-size:8.3pt;color:var(--tinta2);white-space:nowrap}
+.crono .q b{display:block;font-family:var(--display);font-size:11pt;color:var(--tinta)}
+.crono .t{width:17mm;text-align:right;padding-right:0;font-family:var(--display);font-weight:600;font-size:10.5pt;white-space:nowrap}
+.crono tr.bonus .n{color:var(--gold-deep)}
+.crono tfoot td{border-bottom:0;padding-top:4mm;font-family:var(--display);font-weight:700;font-size:11pt}
+.crono tfoot .t{color:var(--gold-deep)}
+.aviso{margin-top:4mm;padding:3.5mm 4mm;background:var(--fundo);border-left:2pt solid var(--gold);font-size:7.8pt;line-height:1.5;color:var(--tinta2)}
+
+/* ---------- fotos ---------- */
+.foto-faixa{height:62mm;background:center/cover no-repeat;position:relative}
+.foto-faixa .leg{position:absolute;left:0;bottom:0;background:var(--tinta);color:#fff;font-family:var(--cta);font-weight:700;font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;padding:2mm 3.5mm}
+.lado{display:grid;grid-template-columns:1fr 1fr;gap:7mm;align-items:start}
+.lista{list-style:none;margin:0;padding:0}
+.lista li{position:relative;padding:2.6mm 0 2.6mm 6mm;border-bottom:1px solid var(--linha);font-size:8.8pt;color:var(--tinta2)}
+.lista li:last-child{border-bottom:0}
+.lista li::before{content:"";position:absolute;left:0;top:4.4mm;width:2.2mm;height:2.2mm;background:var(--gold)}
+.lista li b{color:var(--tinta);font-family:var(--display);font-size:10pt}
+
+/* ---------- ecossistema ---------- */
+.frente{border:1px solid var(--linha)}
+.frente-cab{background:var(--tinta);color:#fff;padding:5mm 5mm 4.5mm}
+.frente-cab small{font-family:var(--cta);font-weight:700;font-size:6.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.frente-cab h3{font-size:15pt;margin-top:1.5mm}
+.frente .lista{padding:1mm 5mm 3mm}
+
+.cartoes-niveis{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:4mm}
+.nivel{aspect-ratio:1.586;border-radius:2.5mm;padding:3.5mm;display:flex;flex-direction:column;justify-content:space-between;color:#fff;font-family:var(--display);font-weight:700;font-size:10pt}
+.nivel small{font-family:var(--cta);font-size:5.5pt;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.nivel img{width:7mm}
+.nivel.platina{background:linear-gradient(135deg,#d9d9de,#8d8f97);color:#18181b}
+.nivel.black{background:linear-gradient(135deg,#3a3a40,#0b0b0d)}
+.nivel.ultrablue{background:linear-gradient(135deg,#1d3a8a,#0a1638)}
+.nivel.legend{background:linear-gradient(135deg,#d4a73d,#6b4c0c)}
+
+/* ---------- fechamento ---------- */
+.fecho{padding:0;background:var(--noite);color:#fff}
+.fecho .foto{position:absolute;inset:0;background:url('img/fecho.jpg') center 35%/cover}
+.fecho .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,16,.2) 0%,rgba(14,14,16,.35) 40%,rgba(14,14,16,.92) 72%,rgba(14,14,16,1) 100%)}
+.fecho .miolo{position:absolute;left:18mm;right:18mm;bottom:30mm}
+.fecho .kicker{color:var(--gold)}
+.fecho h1{font-size:34pt;font-weight:700;max-width:150mm}
+.fecho .vantagens{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:10mm;padding-top:6mm;border-top:1px solid rgba(255,255,255,.18)}
+.fecho .vantagens b{display:block;font-family:var(--display);font-size:11pt;color:var(--gold);margin-bottom:1.5mm}
+.fecho .vantagens p{font-size:8.4pt;line-height:1.5;color:rgba(255,255,255,.75)}
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<section class="pg capa">
+  <div class="foto"></div><div class="veu"></div>
+  <div class="topo"><img src="../olho-amarelo.svg" alt=""><div><b>AUVP Escola</b><span>Guia completo · 2026</span></div></div>
+  <div class="miolo">
+    <p class="kicker">Educação financeira de verdade</p>
+    <h1>Foco no fundamental e na construção de <span class="d">patrimônio no longo prazo.</span></h1>
+    <p class="sub">Tudo o que você precisa saber sobre a AUVP Escola: o treinamento, os materiais, as ferramentas e o ecossistema que acompanha você depois da última aula.</p>
+  </div>
+  <div class="rodape"><span>auvp.com.br</span><span>2026</span></div>
+</section>
+
+<!-- 2. QUEM SOMOS + O QUE É + PARA QUEM -->
+<section class="pg">
+  <p class="kicker">Quem somos</p>
+  <h2 class="titulo">Mais do que um treinamento, <span class="d">somos uma comunidade.</span></h2>
+  <p class="lead">Nascemos da educação financeira e hoje acompanhamos você em cada momento da sua relação com o dinheiro.</p>
+  <div class="numeros">
+    <div><b>+60 mil</b><span>clientes ativos</span></div>
+    <div><b>+55 mil</b><span>investidores formados</span></div>
+    <div><b>nº 1</b><span>Consultoria no ranking BTG Pactual, 2º ano seguido</span></div>
+    <div><b>+100 mil</b><span>contas abertas</span></div>
+  </div>
+
+  <div class="secao">
+    <h2>O que é a AUVP Escola e como funciona</h2>
+    <p style="color:var(--tinta2);margin:-1mm 0 4.5mm;max-width:160mm">A formação completa para você sair do zero e chegar à autonomia: um guia para dominar o mundo dos investimentos, com material, ferramentas e gente para tirar dúvida do lado.</p>
+    <div class="pilares">
+      <div class="pilar"><b>+100 <small>aulas</small></b><p>Aulas gravadas para assistir quando e onde quiser, no seu próprio ritmo.</p></div>
+      <div class="pilar"><b>1 ano <small>de acesso</small></b><p>Ao curso, às ferramentas e às atualizações de mercado ao vivo com o Raul Sena, toda segunda-feira, às 19h.</p></div>
+      <div class="pilar"><b>3 <small>materiais</small></b><p>E-books, mapas mentais e cadernos de exercício para entender e aplicar o conteúdo na prática.</p></div>
+    </div>
+  </div>
+
+  <div class="secao">
+    <h2>Para quem é a AUVP?</h2>
+    <p style="color:var(--tinta2);margin:-1mm 0 2mm;max-width:160mm">Para quem entende que o caminho para a liberdade financeira está na disciplina e no conhecimento sólido, e não em atalhos.</p>
+    <div class="perfis">
+      <div class="perfil"><i>01</i><div><b>Conhecimento do zero</b><p>Você nunca investiu e precisa de uma base que vá do fundamental ao avançado.</p></div></div>
+      <div class="perfil"><i>02</i><div><b>Aperfeiçoamento</b><p>Você já investe, mas quer estruturar melhor a carteira, otimizar a rentabilidade e expandir para o mercado internacional.</p></div></div>
+      <div class="perfil"><i>03</i><div><b>Viver de renda</b><p>Você tem o objetivo claro de viver dos seus investimentos e busca o planejamento e a estratégia para construir esse futuro.</p></div></div>
+    </div>
+  </div>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>02</span></div>
+</section>
+
+<!-- 3. CRONOGRAMA -->
+<section class="pg">
+  <p class="kicker">O treinamento</p>
+  <h2 class="titulo">Cronograma de conteúdo</h2>
+  <p class="lead">Sete módulos e um bônus que vão da mentalidade financeira às estratégias no exterior e à declaração do Imposto de Renda.</p>
+  <table class="crono">
+    <thead><tr><th>Módulo</th><th></th><th>Aulas</th><th style="text-align:right;padding-right:0">Duração</th></tr></thead>
+    <tbody>
+      <tr><td class="n">01</td><td class="mod"><b>Preparando seu cérebro</b><p>Mude sua perspectiva sobre dinheiro: crenças, juros compostos, liberdade financeira e a disciplina necessária para atingir metas.</p><em>Extras: AUVP Crédito · Onde investir sua reserva de emergência</em></td><td class="q"><b>9 aulas</b>+ 2 extras</td><td class="t">2h 18min</td></tr>
+      <tr><td class="n">02</td><td class="mod"><b>Organize seus gastos</b><p>Monte um orçamento, identifique gargalos e entenda a verdade sobre financiamentos, consórcios e previdência privada.</p></td><td class="q"><b>6 aulas</b></td><td class="t">1h 24min</td></tr>
+      <tr><td class="n">03</td><td class="mod"><b>Renda Fixa</b><p>Tesouro Direto, CDBs, debêntures e LCIs/LCAs, com conceitos como marcação a mercado, contrafluxo e juros semestrais.</p><em>Extras: Conhecendo nossos ETFs AUPO11 e AREA11</em></td><td class="q"><b>18 aulas</b>+ 2 extras</td><td class="t">5h 00min</td></tr>
+      <tr><td class="n">04</td><td class="mod"><b>Renda Variável</b><p>Os pilares da renda variável: filosofias de investimento, dividendos, ETFs, fundos imobiliários (FIIs) e ações.</p><em>Extras: Small Caps · Armadilhas do mercado financeiro</em></td><td class="q"><b>26 aulas</b>+ 2 extras</td><td class="t">9h 39min</td></tr>
+      <tr><td class="n">05</td><td class="mod"><b>Reserva de valor</b><p>Conceito e aplicação da reserva de valor, com estratégias de investimento em ouro e Bitcoin.</p><em>Extra: Os ciclos estranhos do Bitcoin</em></td><td class="q"><b>7 aulas</b>+ 1 extra</td><td class="t">2h 06min</td></tr>
+      <tr><td class="n">06</td><td class="mod"><b>Investindo no exterior</b><p>O guia para investir nos EUA: corretoras, ETFs, REITs, ações e renda fixa internacional.</p></td><td class="q"><b>12 aulas</b></td><td class="t">3h 13min</td></tr>
+      <tr><td class="n">07</td><td class="mod"><b>O começo</b><p>Módulo prático: como montar e gerenciar a sua carteira de investimentos.</p></td><td class="q"><b>4 aulas</b></td><td class="t">1h 06min</td></tr>
+      <tr class="bonus"><td class="n">+<small>Bônus</small></td><td class="mod"><b>Imposto de Renda</b><p>A declaração descomplicada: como declarar seus investimentos e pagar os tributos corretamente.</p></td><td class="q"><b>12 aulas</b></td><td class="t">3h 13min</td></tr>
+    </tbody>
+    <tfoot><tr><td></td><td>Total da grade principal</td><td class="q"><b>94 aulas</b>+ 7 extras</td><td class="t">≈ 28h</td></tr></tfoot>
+  </table>
+  <p class="aviso"><b>Observação:</b> a quantidade de aulas e módulos passa por ajustes regulares, porque a AUVP produz e libera continuamente novos conteúdos aos membros, preservando a qualidade e a evolução constante do treinamento.</p>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>03</span></div>
+</section>
+
+<!-- 4. ALÉM DA GRADE + COMO SÃO AS AULAS -->
+<section class="pg">
+  <p class="kicker">Além da grade</p>
+  <h2 class="titulo">Módulos avançados para ir além</h2>
+  <p class="lead">Depois da grade principal, o caminho é seu: se quiser aprofundar algum tema, os módulos extras estão à sua disposição.</p>
+  <div class="grade g2" style="margin-top:6mm">
+    <div class="cartao"><span class="meta">13 aulas</span><h3>Análise de Setores</h3><p>Os pontos mais importantes para entender cada setor da economia: como funciona o ciclo de crescimento das empresas em diferentes áreas e quais indicadores realmente importam.</p></div>
+    <div class="cartao"><span class="meta">16 aulas · China, EUA e Índia</span><h3>Geopolítica</h3><p>Como decisões políticas, guerras, medidas econômicas e relações internacionais afetam os investimentos, para antecipar movimentos do mercado e proteger a carteira.</p></div>
+    <div class="cartao"><span class="meta">22 aulas</span><h3>Indicadores e Aulas Técnicas</h3><p>A saúde financeira das empresas: como interpretar DRE, balanços, fluxo de caixa e estrutura de capital, relembrando todos os indicadores.</p></div>
+    <div class="cartao"><span class="meta">Internacional</span><h3>AUVP Internacional</h3><p>Renda fixa internacional, stocks, REITs e Private Equity, e como o ciclo econômico afeta os investimentos, ampliando suas oportunidades no mercado global.</p></div>
+  </div>
+
+  <div class="secao lado" style="margin-top:10mm">
+    <div>
+      <h2 style="font-size:15pt;margin-bottom:3mm">Como são as aulas por dentro</h2>
+      <ul class="lista">
+        <li><b>Exemplos práticos.</b> O conteúdo sai da teoria e vai para situações reais do dia a dia de quem investe.</li>
+        <li><b>Material visual.</b> Telas, gráficos e quadros que tornam cada conceito fácil de acompanhar.</li>
+        <li><b>Didática e clareza.</b> Do básico ao avançado, sem jargão desnecessário, com o Raul Sena conduzindo.</li>
+      </ul>
+    </div>
+    <div class="foto-faixa" style="background-image:url('img/aula.jpg');height:58mm"><span class="leg">Aula da AUVP Escola</span></div>
+  </div>
+
+  <div class="secao">
+    <h2>Material para estudar e aprender de verdade</h2>
+    <div class="grade g3">
+      <div class="cartao"><h3>E-books</h3><p>Guias completos para baixar e consultar quando quiser.</p></div>
+      <div class="cartao"><h3>Mapas mentais</h3><p>O resumo visual de cada aula, tudo em uma página.</p></div>
+      <div class="cartao"><h3>Cadernos de exercício</h3><p>Pratique o que aprendeu em cada módulo para fixar o conteúdo.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>04</span></div>
+</section>
+
+<!-- 5. FERRAMENTAS + LIVES/COMUNIDADE -->
+<section class="pg">
+  <p class="kicker">Ferramentas</p>
+  <h2 class="titulo">Ferramentas exclusivas para facilitar sua vida</h2>
+  <p class="lead">Recursos próprios que ajudam na análise e na gestão dos seus investimentos, incluídos no seu acesso.</p>
+  <div class="grade g2" style="margin-top:6mm">
+    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></svg></div><h3>Plataforma PIAR</h3><p>Compreenda e mapeie seu perfil de investidor: o sistema ajuda a montar e balancear a carteira de acordo com esse perfil.</p></div>
+    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9l6.4 6.4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Diagrama do Cerrado</h3><p>Rebalanceamento de carteira para manter seus investimentos protegidos e otimizados conforme o mercado e a sua estratégia mudam.</p></div>
+    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.5 12 4l8.5 6.5V20H3.5z"/><path d="M9.5 20v-5.5h5V20"/></svg></div><h3>Orçamento Doméstico</h3><p>Controle seus gastos: um planejamento que organiza o fluxo de dinheiro da sua casa com base nas suas metas e rendimentos.</p></div>
+    <div class="cartao"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>AUVP Analítica</h3><p>Para quem analisa a fundo: dados atualizados, comparação de ativos e ferramentas exclusivas para decisões mais fundamentadas.</p></div>
+  </div>
+
+  <div class="secao">
+    <h2>Onde o seu dinheiro pode chegar</h2>
+    <div class="grade g4">
+      <div class="cartao"><h3>Juros Compostos</h3><p>Veja quanto seu dinheiro pode crescer ao longo do tempo.</p></div>
+      <div class="cartao"><h3>Comparador de Cartões</h3><p>Benefícios, custos e vantagens dos cartões do mercado.</p></div>
+      <div class="cartao"><h3>Calculadora de Renda</h3><p>Quanto investir para viver de renda e o impacto das retiradas.</p></div>
+      <div class="cartao"><h3>Primeiro Milhão</h3><p>Planeje a jornada até o primeiro milhão investido.</p></div>
+    </div>
+    <p class="nota">Calculadoras gratuitas no Investidor Sardinha: investidorsardinha.r7.com/calculadoras</p>
+  </div>
+
+  <div class="secao lado" style="margin-top:7mm">
+    <div class="foto-faixa" style="background-image:url('img/lives.jpg');height:46mm"><span class="leg">Atualização de mercado ao vivo</span></div>
+    <div>
+      <h2 style="font-size:14pt;margin-bottom:2mm">Bateu a dúvida? Estamos sempre por aqui.</h2>
+      <ul class="lista">
+        <li><b>Atualização de Mercado semanal.</b> Toda segunda, às 19h, ao vivo com o Raul Sena.</li>
+        <li><b>Comunidade.</b> Alunos e especialistas de prontidão para tirar dúvidas.</li>
+        <li><b>App próprio.</b> Aulas no celular, para estudar onde estiver.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>05</span></div>
+</section>
+
+<!-- 6. ECOSSISTEMA -->
+<section class="pg">
+  <p class="kicker">Ecossistema</p>
+  <h2 class="titulo">Pensou em dinheiro, <span class="d">pensou na AUVP.</span></h2>
+  <p class="lead">Como aluno, você tem acesso exclusivo ao ecossistema financeiro da AUVP, que funciona como uma extensão prática do seu treinamento.</p>
+  <div class="grade g2" style="margin-top:7mm">
+    <div class="frente">
+      <div class="frente-cab"><small>Educacional</small><h3>Você aprende na prática</h3></div>
+      <ul class="lista">
+        <li><b>A Escola.</b> O treinamento completo: mais de 100 aulas para ir do zero à liberdade financeira.</li>
+        <li><b>Módulos Avançados.</b> Análise de Setores, Geopolítica, Indicadores e Aulas Técnicas.</li>
+        <li><b>Módulo Internacional.</b> Renda fixa internacional, stocks, REITs e Private Equity.</li>
+        <li><b>Ferramentas.</b> Quatro ferramentas próprias para os estudos e a gestão da carteira.</li>
+        <li><b>Atualização de Mercado semanal.</b> Ao vivo, toda segunda-feira, às 19h.</li>
+      </ul>
+    </div>
+    <div class="frente">
+      <div class="frente-cab"><small>AUVP Capital &amp; Banking</small><h3>Nós cuidamos da sua vida financeira</h3></div>
+      <ul class="lista">
+        <li><b>Consultoria.</b> Nº 1 no ranking do BTG Pactual, pelo segundo ano seguido.</li>
+        <li><b>Conta com cartão próprio.</b> Conta, cartão e atendimento 100% AUVP.*</li>
+        <li><b>Crédito.</b> Comparação com mais de 20 bancos, sem liquidar seus investimentos.</li>
+        <li><b>Câmbio.</b> Enviar, receber ou investir no exterior com custo transparente.</li>
+        <li><b>Seguros.</b> Cotação em até 6 seguradoras, sem viés de interesse.</li>
+        <li><b>Wealth.</b> Blindagem patrimonial, governança e planejamento sucessório.</li>
+        <li><b>ETFs próprios.</b> AUVP11, AUPO11, AREA11 e ABTC11, com metodologia AUVP.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foto-faixa" style="background-image:url('img/alunos.jpg');background-position:center 35%;height:52mm;margin-top:7mm"><span class="leg">Comunidade AUVP</span></div>
+  <p class="nota">*Sujeito a análise de crédito.</p>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>06</span></div>
+</section>
+
+<!-- 7. CAPITAL & BANKING + CARTÕES -->
+<section class="pg">
+  <p class="kicker">AUVP Capital &amp; Banking</p>
+  <h2 class="titulo">Tudo em um só lugar</h2>
+  <p class="lead">Uma <b style="color:var(--tinta)">Conta de Investimentos</b>, para investir e gerir seus ativos no Brasil e no exterior, integrada a uma <b style="color:var(--tinta)">Conta Banking</b>, para o dia a dia, como Pix e transferências.</p>
+  <div class="grade g2" style="margin-top:7mm">
+    <div class="cartao"><h3>Escolha seu plano sob medida</h3><p>Modelos de contratação que vão da autonomia total, no autoatendimento, até uma consultoria personalizada, o "Resolve Aí". Sempre com zero conflito de interesses.</p></div>
+    <div class="cartao"><h3>Benefícios exclusivos</h3><p>Isenção de taxa de corretagem, cashback em operações como renda fixa e aluguel de ações e acesso a ferramentas como o Kinvo Premium.</p></div>
+  </div>
+
+  <div class="secao">
+    <h2>Cartões AUVP</h2>
+    <p style="color:var(--tinta2);max-width:160mm">Cartões exclusivos que evoluem de acordo com o seu nível de investimentos.*</p>
+    <div class="cartoes-niveis">
+      <div class="nivel platina"><img src="../olho-amarelo.svg" alt=""><span><small>AUVP</small><br>Platinum</span></div>
+      <div class="nivel black"><img src="../olho-amarelo.svg" alt=""><span><small>AUVP</small><br>Black</span></div>
+      <div class="nivel ultrablue"><img src="../olho-amarelo.svg" alt=""><span><small>AUVP</small><br>Ultrablue</span></div>
+      <div class="nivel legend"><img src="../olho-amarelo.svg" alt=""><span><small>AUVP</small><br>World Legend</span></div>
+    </div>
+    <ul class="lista" style="margin-top:4mm">
+      <li><b>Totalmente personalizável.</b> Escolha entre receber cashback na fatura ou acumular pontos.</li>
+      <li><b>Módulos de benefícios.</b> Adicione vantagens que combinam com o seu estilo de vida, como viagens, segurança extra, entretenimento e acesso a fundos de investimento exclusivos.</li>
+    </ul>
+    <p class="nota">*Sujeito a análise de crédito.</p>
+  </div>
+
+  <div class="secao">
+    <h2>Vantagens de fazer parte da AUVP Escola</h2>
+    <div class="grade g3">
+      <div class="cartao"><h3>Visão completa</h3><p>Aprenda a investir com fundamentos e construa uma base para atuar no Brasil e no mundo.</p></div>
+      <div class="cartao"><h3>Ferramentas na mão</h3><p>Recursos que auxiliam na análise e na gestão dos seus investimentos.</p></div>
+      <div class="cartao"><h3>Metodologia comprovada</h3><p>Conteúdo estruturado para levar você do zero ao investidor internacional, de forma didática e prática.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>07</span></div>
+</section>
+
+<!-- 8. FECHAMENTO -->
+<section class="pg fecho">
+  <div class="foto"></div><div class="veu"></div>
+  <div class="miolo">
+    <p class="kicker">Bem-vindo à AUVP</p>
+    <h1>Vamos juntos construir sua liberdade financeira.</h1>
+    <div class="vantagens">
+      <div><b>+100 aulas</b><p>Do zero à autonomia, no seu ritmo, com 1 ano de acesso.</p></div>
+      <div><b>Toda segunda, 19h</b><p>Atualização de mercado ao vivo com o Raul Sena.</p></div>
+      <div><b>Um ecossistema</b><p>Educação, investimentos e banking no mesmo lugar.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><img src="../olho-amarelo.svg" alt=""><span>AUVP Escola · 2026</span><span>auvp.com.br</span></div>
+</section>
+
+</body>
+</html>
