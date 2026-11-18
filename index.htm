@@ -222,9 +222,6 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,4vw,56px);lin
 .quadro .brief b{display:block;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:9.5px;margin-bottom:9px}
 .faixa{position:absolute;left:0;right:0;bottom:0;padding:48px 56px 44px;background:linear-gradient(0deg,#18181b 8%,rgba(24,24,27,.72) 55%,transparent)}
 .faixa h1{color:#fff}
-.baixar{align-self:center;display:inline-flex;align-items:center;gap:9px;margin-top:28px;padding:13px 22px;border-radius:3px;background:var(--gold);color:#18181b;font-family:var(--cta);font-weight:700;font-size:13px;letter-spacing:.02em;text-decoration:none;box-shadow:0 14px 34px -14px rgba(239,191,78,.7);transition:transform .22s var(--mola),background .22s,box-shadow .22s}
-.baixar:hover{background:#F5CD6A;transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(239,191,78,.85)}
-.tela.ativa .quadro.foco .baixar{animation:surge .7s var(--mola) .6s backwards}
 .faixa .legenda{margin:15px 0 0;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72);max-width:56ch}
 .legenda{font-size:16px;line-height:1.6;color:var(--tinta2);margin:14px 0 0;max-width:56ch}
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
@@ -265,8 +262,6 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,4vw,56px);lin
 .foto.capa .rot small{color:rgba(255,255,255,.78)}
 a.foto{text-decoration:none;color:inherit;cursor:pointer}
 a.foto.capa .rot{padding-right:104px}
-a.foto .acesso,a.calc .acesso{display:inline-flex;align-items:center;gap:5px;z-index:3;top:auto;right:16px;bottom:16px;transition:.2s}
-a.foto:hover .acesso,a.calc:hover .acesso{background:#fff;transform:translateY(-2px)}
 .foto .ph{position:absolute;top:16px;left:18px;z-index:1;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3)}
 .foto .rot{padding:18px;background:linear-gradient(0deg,var(--rot-veu),transparent)}
 .foto .rot b{font-family:var(--display);font-weight:600;font-size:18px;display:block;letter-spacing:-.01em;color:var(--tinta)}
@@ -275,22 +270,22 @@ a.foto:hover .acesso,a.calc:hover .acesso{background:#fff;transform:translateY(-
 .foto.capa.play::after{display:grid;place-items:center;width:64px;height:64px;transform:translate(-50%,-58%);border-radius:50%;font-size:22px;line-height:1;text-indent:4px;color:#09090b;background:var(--gold);box-shadow:0 12px 30px -8px rgba(0,0,0,.6);transition:transform .3s var(--mola)}
 a.foto.capa.play:hover::after{transform:translate(-50%,-58%) scale(1.08)}
 /* calculadoras: cards de cor cheia, num dourado fosco. Como a pílula
-   .acesso e a .foto.capa, valem em tema claro e escuro sem variação: a
+   a .foto.capa, valem em tema claro e escuro sem variação: a
    cor é a da identidade, não a do fundo da página. O dourado é claro,
-   então a tinta aqui é escura - o mesmo par que a pílula já usa.
+   então a tinta aqui é escura.
    O tom é uma variação local do --gold, com menos saturação e menos
    luz: o token da marca segue como está para o resto da apresentação. */
 #ferramentas,#calculadoras{flex:none}
 /* as ferramentas ganham corpo, as calculadoras encolhem */
 #ferramentas .foto{min-height:310px}
-#calculadoras .calc{min-height:170px;padding:16px 16px 40px;gap:8px}
+#calculadoras .calc{min-height:170px;padding:16px;gap:8px}
 #calculadoras .calc-ic{width:36px;height:36px}
 #calculadoras .calc-ic svg{width:17px;height:17px}
 #calculadoras .calc b{font-size:16px}
 #calculadoras .calc small{font-size:12px;line-height:1.45}
 /* ícone e título na mesma linha, alinhados pelo centro do ícone; o texto
    de apoio ocupa a largura toda embaixo */
-.calc{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;align-content:start;gap:14px 12px;min-height:286px;padding:26px 24px 52px;border:0;border-radius:3px;overflow:hidden;overflow:clip;text-decoration:none;color:#09090b;background:linear-gradient(152deg,#D3AC50 0%,#BB963E 62%,#AA893C 100%);box-shadow:0 18px 38px -22px rgba(120,86,10,.55);transition:transform .3s var(--mola),box-shadow .3s}
+.calc{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;align-content:start;gap:14px 12px;min-height:286px;padding:26px 24px;border:0;border-radius:3px;overflow:hidden;overflow:clip;text-decoration:none;color:#09090b;background:linear-gradient(152deg,#D3AC50 0%,#BB963E 62%,#AA893C 100%);box-shadow:0 18px 38px -22px rgba(120,86,10,.55);transition:transform .3s var(--mola),box-shadow .3s}
 /* o arco claro do canto superior direito, como no material de origem */
 .calc::before{content:"";position:absolute;z-index:0;top:-42%;right:-30%;width:88%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.1);pointer-events:none}
 .calc>*{position:relative;z-index:1}
@@ -298,12 +293,8 @@ a.foto.capa.play:hover::after{transform:translate(-50%,-58%) scale(1.08)}
 .calc-ic{width:46px;height:46px;flex:none;border-radius:3px;display:grid;place-items:center;background:rgba(9,9,11,.13);color:#09090b}
 .calc b{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2;letter-spacing:-.015em;color:#09090b}
 .calc small{grid-column:1/-1;font-size:13px;line-height:1.5;color:rgba(9,9,11,.82)}
-/* a pílula dourada sumiria no card dourado: aqui ela inverte */
-.calc .acesso{background:#09090b;color:var(--gold)}
-a.calc:hover .acesso{background:#fff;color:#09090b}
 .calc-todas{align-self:center;margin-top:20px;display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border:1px solid rgba(239,191,78,.4);border-radius:3px;background:var(--gold-bg);font-size:13px;font-weight:600;color:var(--gold-deep);text-decoration:none;transition:border-color .25s,background .25s}
 .calc-todas:hover{border-color:var(--gold);background:rgba(239,191,78,.18)}
-.acesso{position:absolute;top:16px;right:16px;font-family:var(--cta);font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#09090b;background:var(--gold);padding:4px 9px;border-radius:3px}
 /* ecossistema: um núcleo e duas frentes. O olho no meio, ligado por um
    fio a cada frente; cada frente é um disco com os seus produtos em
    volta, como satélites. O ângulo de cada satélite vem inline (--a) e
@@ -311,7 +302,8 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 .eco-grupos{flex:1;display:flex;align-items:center;justify-content:center;margin-top:6px;
   /* o satélite também não passa do que o arco comporta: com o raio
      limitado pela largura, dois nomes vizinhos se encostariam */
-  --sat:min(clamp(56px,min(13vh,6.6vw),148px),calc(.30*var(--cabe) - 38px));
+  --sat0:min(clamp(56px,min(13vh,6.6vw),148px),calc(.30*var(--cabe) - 38px));
+  --sat:var(--sat0);
   --disco:clamp(112px,min(23vh,12vw),250px);
   --olho:clamp(76px,min(15.5vh,8.4vw),186px);
   --rotulo:clamp(30px,4.4vh,54px);
@@ -410,40 +402,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 .eco-modal-link:hover{background:#fff}
 .eco-modal-link[hidden]{display:none}
 
-/* ecossistema V2: as duas frentes lado a lado em mosaico de fotos,
-   separadas só por um fio fino. A frente da esquerda tem 2 colunas e a da direita 3, cada
-   uma com 3 linhas: o destaque ocupa 2 (esquerda) ou 3 (direita) linhas e
-   os demais preenchem o resto, sem sobrar buraco. */
-.eco2{flex:1;display:grid;grid-template-columns:minmax(0,2fr) 1px minmax(0,3fr);gap:clamp(18px,2.2vw,36px);margin-top:clamp(16px,2.6vh,30px)}
-.eco2-frente{display:flex;flex-direction:column;min-width:0}
-.eco2-cab{display:flex;flex-direction:column;gap:5px;margin-bottom:clamp(10px,1.6vh,16px)}
-.eco2-cab b{font-family:var(--display);font-weight:700;font-size:clamp(19px,1.8vw,26px);line-height:1.1;letter-spacing:-.02em;color:var(--tinta)}
-.eco2-frente.dir .eco2-cab{text-align:right}
-.eco2-grade{flex:1;display:grid;gap:clamp(8px,.9vw,14px);grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(clamp(112px,18vh,230px),1fr))}
-.eco2-frente.dir .eco2-grade{grid-template-columns:repeat(3,minmax(0,1fr))}
-.ecard.destaque{grid-row:span 2}
-.eco2-frente.dir .ecard.destaque{grid-row:span 3}
-.ecard{position:relative;isolation:isolate;overflow:hidden;min-height:0;padding:0;border-radius:3px;text-align:left;background:#0c0c0e;border:1px solid var(--vidro-borda);
-  animation:sobe .5s var(--mola) backwards;animation-delay:calc(var(--j,0)*55ms + 140ms);
-  transition:transform .35s var(--mola),box-shadow .35s,border-color .35s}
-.ecard-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--mola)}
-.ecard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(9,9,11,.94) 0%,rgba(9,9,11,.6) 36%,rgba(9,9,11,.06) 72%)}
-.ecard-txt{position:absolute;left:0;right:0;bottom:0;padding:clamp(11px,1.2vw,18px);color:#fff}
-.ecard b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(14px,1.2vw,19px);line-height:1.15;letter-spacing:-.01em}
-.ecard.destaque b{font-size:clamp(20px,2vw,30px)}
-/* a descrição aparece no destaque e, nos demais, ao passar o mouse */
-.ecard small{display:block;max-height:0;opacity:0;overflow:hidden;font-size:clamp(11.5px,.9vw,13.5px);line-height:1.45;color:rgba(255,255,255,.82);transition:max-height .45s var(--mola),opacity .3s,margin .3s}
-.ecard:hover small,.ecard:focus-visible small{max-height:7em;opacity:1;margin-top:6px}
-.ecard.destaque small{max-height:12em;opacity:1;margin-top:6px}
-.ecard-mais{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:17px;line-height:1;font-weight:500;color:#fff;border:1px solid rgba(255,255,255,.85);opacity:0;transition:transform .35s var(--mola),opacity .3s,background .25s,color .25s}
-.ecard:hover{transform:translateY(-3px);border-color:rgba(239,191,78,.75);box-shadow:0 18px 34px -16px rgba(184,134,11,.75)}
-.ecard:hover .ecard-img{transform:scale(1.06)}
-.ecard:hover .ecard-mais,.ecard:focus-visible .ecard-mais{transform:rotate(90deg);opacity:1;background:#fff;color:#09090b}
-/* sem mouse não há hover: o "+" fica sempre à vista */
-@media (hover:none){.ecard-mais{opacity:1}}
-.eco2-divisa{margin-top:clamp(44px,6.5vh,70px);background:linear-gradient(180deg,transparent,var(--linha-f) 18%,var(--linha-f) 82%,transparent)}
 @keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(239,191,78,.35)}50%{box-shadow:0 0 0 12px rgba(239,191,78,0)}}
-.eco2-dica{display:flex;align-items:center;justify-content:center;gap:8px;margin:clamp(14px,2vh,22px) 0 0;font-family:var(--cta);font-weight:600;font-size:12px;letter-spacing:.04em;color:var(--gold-deep)}
 
 /* divisória entre a grade fixa e os módulos avançados */
 .crono-divisa{display:flex;align-items:center;gap:16px;margin:36px 0 26px;color:var(--gold-deep)}
@@ -464,10 +423,24 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 .eco-topo .mote{font-family:var(--display);font-weight:700;font-size:clamp(26px,3vw,42px);letter-spacing:-.025em;margin:0;color:var(--tinta)}
 .eco-topo h1{margin:8px auto 0;font-family:var(--display);font-weight:600;font-size:clamp(20px,2vw,26px);color:var(--tinta2);max-width:none}
 /* ---------- ecossistema: a marca no centro, os produtos em volta ---------- */
+/* a frente da Escola é a protagonista: satélites maiores e o mote em
+   dourado. A frente Banking fica de apoio, um pouco menor e mais
+   apagada, e volta à cor plena no cursor. */
+.eco-frente.foco{--sat:calc(var(--sat0)*1.12)}
+.eco-frente.apoio{--sat:calc(var(--sat0)*.88)}
+.eco-frente.foco .eco-disco b{color:var(--gold)}
+.eco-frente.apoio .eorb-img{filter:saturate(.55) brightness(.82);transition:transform .22s var(--mola),box-shadow .22s,filter .3s}
+.eco-frente.apoio .eorb:hover .eorb-img{filter:none}
+.eco-frente.apoio .eorb b{color:var(--tinta2)}
 /* card em destaque (a Escola): maior que os demais no anel, com traçado
    dourado fixo. O traçado é outline, e não box-shadow, justamente para
    não disputar a propriedade com o hover - assim o card cresce e brilha
-   no cursor exatamente como todos os outros. */
+   no cursor exatamente como todos os outros. Só a foto cresce (o botão
+   segue do tamanho do anel), então o fio e o nome se afastam junto. */
+.eorb.destaque .eorb-in{transform:scale(1.32)}
+.eorb.destaque .eorb-img{outline:2px solid var(--gold);outline-offset:4px;animation:pulsa 2.6s ease-in-out infinite}
+.eorb.destaque b{top:calc(116% + 8px);font-weight:700;font-size:clamp(13px,1.8vh,20px);color:var(--gold)}
+.eorb.destaque.cima b{top:auto;bottom:calc(116% + 8px)}
 
 
 
@@ -477,7 +450,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
    vira uma pilha estreita quando a faixa centralizada encolhe */
 .numeros{--cols:4;--fio:rgba(255,255,255,.24);display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));width:min(100%,940px);margin:34px auto 0;border-top:1px solid var(--fio);border-bottom:1px solid var(--fio)}
 /* na Escola a régua acompanha o texto, que é alinhado à esquerda */
-#t3 .numeros{--cols:2;width:min(100%,520px);margin-left:0}
 .num{padding:22px 16px 20px;text-align:center}
 .num+.num{border-left:1px solid var(--fio)}
 .num b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(36px,4.2vw,60px);line-height:1;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -563,7 +535,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 .etapas:hover,.etapas:focus-within,.etapas.acesa{opacity:1}
 /* folga à direita para o conteúdo não passar por baixo da trilha
    (a V1 das órbitas calcula o raio pela largura e fica como está) */
-@media (min-width:861px){.galeria,#t10b .eco-wrap{padding-right:84px}#t10b .eco-wrap{padding-left:84px}}
+@media (min-width:861px){.galeria{padding-right:84px}}
 /* dica da primeira visita: um balão que aponta para a trilha */
 .et-dica{position:absolute;right:calc(100% + 12px);bottom:4px;padding:7px 11px;border-radius:4px;background:var(--gold);color:#09090b;font-family:var(--cta);font-weight:700;font-size:11px;letter-spacing:.04em;white-space:nowrap;opacity:0;transform:translateX(8px);pointer-events:none;transition:opacity .35s,transform .45s var(--mola)}
 .et-dica.ver{opacity:1;transform:none}
@@ -614,7 +586,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
   .avancados{grid-template-columns:1fr}
   #t3 .faixa{align-items:center;text-align:center}
   #t3 .faixa .legenda{margin-left:auto;margin-right:auto}
-  #t3 .numeros{margin-left:auto}
   /* no celular, 2x2: os fios passam a dividir também as linhas */
   .numeros{--cols:2}
   .num{padding:18px 10px 16px}
@@ -639,13 +610,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
   /* a barra sai do caminho enquanto a página desce e volta ao subir */
   .etapas{opacity:1}
   body.trilha-recolhida .etapas{transform:translate(50%,calc(100% + 24px))}
-  /* V2 empilhada: uma frente embaixo da outra, em duas colunas, com o
-     destaque na largura toda e a descrição sempre visível nele */
-  .eco2{grid-template-columns:1fr;gap:30px}
-  .eco2-divisa{display:none}
-  .eco2-frente.dir .eco2-cab{text-align:left}
-  .eco2-grade,.eco2-frente.dir .eco2-grade{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:minmax(150px,auto)}
-  .ecard.destaque,.eco2-frente.dir .ecard.destaque{grid-column:1/-1;grid-row:span 1;min-height:210px}
   .grade,.g-2,.g-3,.g-4{grid-template-columns:1fr}
   .mcard-head{flex-direction:column;gap:14px}.medalhao{width:100%;min-height:88px}
   .medalhao.capa{width:100%;min-height:0}
@@ -710,10 +674,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
       <img class="bg" src="DSC01389-2560.jpg" alt="" decoding="async" fetchpriority="low">
       <div class="faixa">        <h1>O que é a AUVP Escola?</h1>
         <p class="legenda">A formação completa para você sair do zero e chegar à autonomia, com material, ferramentas e gente para tirar dúvida do lado.</p>
-        <div class="numeros">
-          <div class="num"><b><em>+</em><i data-conta="100">100</i></b><span>aulas gravadas, para assistir no seu ritmo</span></div>
-          <div class="num"><b><i>1</i><em> ano</em></b><span>de acesso ao curso, às lives e às ferramentas</span></div>
-        </div>
       </div></div></section>
 
     <section class="tela" id="t4"><div class="quadro midia in">
@@ -741,9 +701,9 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <section class="tela" id="tmat"><div class="galeria in">
       <div class="cab"><h1>Material para estudar e aprender de verdade</h1></div>
       <div class="grade g-3">
-        <a class="foto capa" href="https://drive.google.com/file/d/1mBxmeBt4iAHoRVUPYD2LtDDObSflENqe/view" target="_blank" rel="noopener noreferrer" style="--capa:url('capa%20modulo%203.jpg')"><span class="cimg"></span><span class="veu"></span><span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span><div class="rot"><b>E-books</b><small>Guias completos para baixar e consultar quando quiser.</small></div></a>
-        <a class="foto capa" href="https://drive.google.com/file/d/1Zxw2LKEc2ESafeE5L62sOBNekgujpzx6/view" target="_blank" rel="noopener noreferrer" style="--capa:url('https://lwfiles.mycourse.app/65f0605f45786c13a78a559b-public/57fb9691a06a2815fcca7a5012b8abf9.png')" data-foco="mapa"><span class="cimg"></span><span class="veu"></span><span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span><div class="rot"><b>Mapas mentais</b><small>O resumo visual de cada aula, tudo em uma página.</small></div></a>
-        <a class="foto capa" href="https://drive.google.com/file/d/1a5zCT1HsacB8jHgA-P2_xiny7Gzj9grW/view" target="_blank" rel="noopener noreferrer" style="--capa:url('capa%20caderno%20ex%202.jpg')"><span class="cimg"></span><span class="veu"></span><span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span><div class="rot"><b>Cadernos de exercício</b><small>Pratique o que aprendeu em cada módulo para fixar o conteúdo.</small></div></a>
+        <a class="foto capa" href="https://drive.google.com/file/d/1mBxmeBt4iAHoRVUPYD2LtDDObSflENqe/view" target="_blank" rel="noopener noreferrer" style="--capa:url('capa%20modulo%203.jpg')"><span class="cimg"></span><span class="veu"></span><div class="rot"><b>E-books</b><small>Guias completos para baixar e consultar quando quiser.</small></div></a>
+        <a class="foto capa" href="https://drive.google.com/file/d/1Zxw2LKEc2ESafeE5L62sOBNekgujpzx6/view" target="_blank" rel="noopener noreferrer" style="--capa:url('https://lwfiles.mycourse.app/65f0605f45786c13a78a559b-public/57fb9691a06a2815fcca7a5012b8abf9.png')" data-foco="mapa"><span class="cimg"></span><span class="veu"></span><div class="rot"><b>Mapas mentais</b><small>O resumo visual de cada aula, tudo em uma página.</small></div></a>
+        <a class="foto capa" href="https://drive.google.com/file/d/1a5zCT1HsacB8jHgA-P2_xiny7Gzj9grW/view" target="_blank" rel="noopener noreferrer" style="--capa:url('capa%20caderno%20ex%202.jpg')"><span class="cimg"></span><span class="veu"></span><div class="rot"><b>Cadernos de exercício</b><small>Pratique o que aprendeu em cada módulo para fixar o conteúdo.</small></div></a>
       </div>
     </div></section>
 
@@ -776,15 +736,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
       <div class="eco-grupos" id="eco-grupos"></div>
     </div></section>
 
-    <!-- ecossistema V2: o mesmo conteúdo da V1 em mosaico de fotos -->
-    <section class="tela" id="t10b"><div class="eco-wrap in">
-      <div class="eco-topo">
-        <p class="mote">Pensou em dinheiro, pensou na AUVP.</p>
-        <h1>Um <span class="dourado">ecossistema</span>, duas frentes.</h1>
-      </div>
-      <div class="eco2" id="eco2"></div>
-      <p class="eco2-dica"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5a6.5 6.5 0 0 1-6.5 6.5h-.6a6 6 0 0 1-4.6-2.2L4.6 15a1.5 1.5 0 0 1 2.3-1.9L9 15.5"/></svg>Clique em cada solução para conhecer mais</p>
-    </div></section>
 
     
 
@@ -799,7 +750,6 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <section class="tela" id="t17"><div class="quadro midia foco in">
       <img class="bg" src="DSC01355-2560.webp" alt="" decoding="async" fetchpriority="low">
       <div class="faixa" style="text-align:center">        <h1 class="copy" data-slot="titulo" style="margin:0 auto;max-width:24ch">Vamos juntos construir sua liberdade financeira.</h1>
-        <a class="baixar" href="AUVP%20Escola.pdf" download="AUVP Escola.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11.2M7.4 10.2 12 14.8l4.6-4.6M4.5 16.5v2.2a1.8 1.8 0 0 0 1.8 1.8h11.4a1.8 1.8 0 0 0 1.8-1.8v-2.2"/></svg>Baixar a apresentação em PDF</a>
       </div></div></section>
     </main>
 </div>
@@ -816,7 +766,7 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
     <li><span><kbd>&larr;</kbd><kbd>&rarr;</kbd></span>Seção anterior e próxima, na ordem da apresentação</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 7v3"/></svg></span>Role até o fim da seção para ir à próxima; no celular, deslize para o lado</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>A trilha de pontos mostra onde você está; clique num ponto para ir direto</li>
-    <li><span><kbd>1</kbd></span>Os números levam direto a cada seção, na ordem do menu (10: digite 1 e 0)</li>
+    <li><span><kbd>1</kbd></span>Os números levam direto a cada seção, na ordem do menu</li>
     <li><span><kbd>Esc</kbd></span>Fecha o que estiver aberto: card, imagem ou menu</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>O ícone de menu no canto superior esquerdo abre as seções</li>
     <li><span class="ic"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="M15.2 15.2 20 20"/></svg></span>Tags com lupa abrem uma imagem ali mesmo</li>
@@ -849,27 +799,25 @@ a.calc:hover .acesso{background:#fff;color:#09090b}
 const NAV=[
   ['Contexto',[
     ['t1','Quem somos nós?','1'],
-    ['t10','Ecossistema · órbitas V1','2'],
-    ['t10b','Ecossistema · V2','3']
+    ['t10','Ecossistema','2']
   ]],
   ['O Produto',[
-    ['t3','A Escola','4'],
-    ['t5','Módulos do treinamento','5'],
-    ['t4','Dinâmica das aulas','6'],
-    ['tmat','Materiais de apoio','7'],
-    ['t6','Ferramentas','8'],
-    ['t7','Lives, comunidade e app','9']
+    ['t3','A Escola','3'],
+    ['t5','Módulos do treinamento','4'],
+    ['t4','Dinâmica das aulas','5'],
+    ['tmat','Materiais de apoio','6'],
+    ['t6','Ferramentas','7'],
+    ['t7','Lives, comunidade e app','8']
   ]],
   ['Fechamento',[
-    ['t17','Boas-vindas','10']
+    ['t17','Boas-vindas','9']
   ]]
 ];
 
 /* ============================================================
    ECOSSISTEMA
-   Dado único das duas versões da tela (órbitas V1 e mosaico V2).
    url: a página do produto (a mesma do PDF), aberta pelo popup.
-   destaque: o card maior de cada frente no mosaico da V2.
+   destaque: o card que ganha traçado dourado e fica maior no anel.
    ============================================================ */
 const ECOS=[
   {grupo:'Educacional',mote:'Você aprende\nna prática',curto:'Escola',
@@ -1347,7 +1295,7 @@ document.getElementById('calculadoras').innerHTML=CALC.map(function(c){
   return '<a class="calc" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">'
     +'<span class="calc-ic"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+c.ic+'</svg></span>'
     +'<b>'+esc(c.t)+'</b><small>'+esc(c.d)+'</small>'
-    +'<span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span></a>';
+    +'</a>';
 }).join('');
 
 (function(){
@@ -1433,7 +1381,6 @@ document.getElementById('ferramentas').innerHTML=FERR.map(function(f){
   return '<'+tag+' class="foto'+capa+'"'+atr+'>'
     +(f.capa?'<span class="cimg"></span><span class="veu"></span>':'')
     +'<span class="ph">Print</span>'
-    +(f.url?'<span class="acesso">Acessar<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></span>':'')
     +'<div class="rot"><b>'+esc(f.t)+'</b><small>'+esc(f.d)+'</small></div></'+tag+'>';
 }).join('');
 /* ---------- ecossistema: sistema solar ----------
@@ -1448,12 +1395,12 @@ function frenteEco(g,gi){
   var inicio=(gi?180:0)+40;
   /* com muitos satélites o arco fica apertado: o raio abre um pouco
      mais para os nomes de dois vizinhos não se encostarem */
-  return '<div class="eco-frente" style="--fator:'+(n>5?1.32:1)+'">'
+  return '<div class="eco-frente '+(gi?'apoio':'foco')+'" style="--fator:'+(n>5?1.32:1)+'">'
     +'<div class="eco-disco'+(g.mote.length>14?' longo':'')+'"><b>'+esc(g.mote).replace(/\n/g,'<br>')+'</b></div>'
     +g.itens.map(function(it,k){
       var a=inicio+(n>1?280*k/(n-1):140);
       /* metade de cima do disco: o nome sobe em vez de descer */
-      return '<button type="button" class="eorb'+(Math.sin(a*Math.PI/180)<0?' cima':'')+'" data-url="'+esc(it.url||'')+'" aria-expanded="false" style="--a:'+a.toFixed(1)+'deg;--j:'+(gi*6+k)+'">'
+      return '<button type="button" class="eorb'+(Math.sin(a*Math.PI/180)<0?' cima':'')+(it.destaque&&!gi?' destaque':'')+'" data-url="'+esc(it.url||'')+'" aria-expanded="false" style="--a:'+a.toFixed(1)+'deg;--j:'+(gi*6+k)+'">'
         +'<span class="eorb-in"><img class="eorb-img" '+foto(it)+' alt="" loading="lazy"></span>'
         +'<b>'+esc(it.t)+'</b><small>'+esc(it.d)+'</small></button>';
     }).join('')
@@ -1466,24 +1413,6 @@ document.getElementById('eco-grupos').innerHTML=
   +'<span class="eco-fio"></span>'
   +frenteEco(ECOS[1],1);
 
-/* ---------- ecossistema V2: mosaico de fotos ----------
-   As duas frentes lado a lado, cada uma numa grade de fotos com o card
-   de destaque maior, separadas por um fio fino. Mesmo dado e mesmo popup da V1. */
-function frenteV2(g,gi){
-  var itens=g.itens.filter(function(it){return it.destaque}).concat(g.itens.filter(function(it){return !it.destaque}));
-  return '<div class="eco2-frente'+(gi?' dir':'')+'">'
-    +'<div class="eco2-cab"><b>'+esc(g.mote.replace(/\n/g,' '))+'</b></div>'
-    +'<div class="eco2-grade">'+itens.map(function(it,k){
-      return '<button type="button" class="ecard'+(it.destaque?' destaque':'')+'" data-url="'+esc(it.url||'')+'" aria-expanded="false" style="--j:'+(gi*6+k)+'">'
-        +'<img class="ecard-img" '+foto(it)+' alt="" loading="lazy">'
-        +'<span class="ecard-mais" aria-hidden="true">+</span>'
-        +'<span class="ecard-txt"><b>'+esc(it.t)+'</b><small>'+esc(it.d)+'</small></span></button>';
-    }).join('')+'</div></div>';
-}
-document.getElementById('eco2').innerHTML=
-  frenteV2(ECOS[0],0)
-  +'<span class="eco2-divisa" aria-hidden="true"></span>'
-  +frenteV2(ECOS[1],1);
 
 /* no mapa de órbitas, clique num item abre a foto e a descrição num
    popup que estica a partir do próprio card clicado (a caixa nunca fica invisível: ela
@@ -1521,12 +1450,12 @@ function abreEcoModal(btn){
 }
 function fechaEcoModal(){
   ecoCena.classList.remove('ver');ecoCena.setAttribute('aria-hidden','true');
-  document.querySelectorAll('.eorb[aria-expanded="true"],.ecard[aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false')});
+  document.querySelectorAll('.eorb[aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false')});
   if(ecoOrigem){ecoModal.style.transform=transformDe(ecoOrigem.getBoundingClientRect())||'';ecoOrigem.focus({preventScroll:true})}
   ecoOrigem=null;
 }
 document.addEventListener('click',function(e){
-  var b=e.target.closest('.eorb,.ecard');
+  var b=e.target.closest('.eorb');
   if(b){e.preventDefault();abreEcoModal(b);return}
   if(!ecoCena.classList.contains('ver'))return;
   if(e.target.closest('.eco-modal-x')||!e.target.closest('#eco-modal'))fechaEcoModal();
@@ -1537,7 +1466,7 @@ document.addEventListener('click',function(e){
    animação e o movimento engasga */
 function preparaFotos(){
   /* as do ecossistema entram junto */
-  document.querySelectorAll('img.bg,.eorb-img,.ecard-img').forEach(function(im){
+  document.querySelectorAll('img.bg,.eorb-img').forEach(function(im){
     if(im.decode)im.decode().catch(function(){});
   });
 }
