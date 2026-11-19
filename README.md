@@ -6,31 +6,30 @@ abrir o `index.htm` no navegador.
 
 Navegação: setas `←` `→` entre seções, `H` ou `Esc` para a Home. O menu lateral
 abre pelo ícone ☰ no canto superior esquerdo (basta passar o mouse); as teclas
-de 1 a 9 levam direto a cada seção, na ordem do menu. A apresentação em PDF (`AUVP Escola - 2026.pdf`)
-pode ser baixada pelo menu lateral e pelo botão no fim da apresentação.
+de 1 a 9 levam direto a cada seção, na ordem do menu. O guia em PDF (`AUVP Escola.pdf`)
+pode ser baixado pelo botão "Baixar PDF" do menu lateral.
 
 ## PDF de download
 
-O `AUVP Escola - 2026.pdf` é um guia em A4 que reúne as informações da
-apresentação e do material de apoio. A fonte dele é `pdf/guia-auvp-escola.htm`
-(com as fotos já otimizadas em `pdf/img/`). Para mudar o texto, edite esse
-arquivo e gere o PDF de novo com o Chrome, rodando no PowerShell a partir da
-pasta do repositório (o Chrome precisa dos caminhos completos):
+O `AUVP Escola.pdf` (10 páginas, visual escuro) veio pronto do site-vendas-v2
+e **não tem a fonte completa neste repositório**. Só a página 3, a do
+ecossistema, tem fonte: `pdf/ecossistema.htm`. Ela é impressa sozinha e
+trocada dentro do PDF, sem mexer nas outras páginas (o índice da página 2
+continua levando até ela).
+
+Para mudar o ecossistema, edite `pdf/ecossistema.htm` e rode no PowerShell, a
+partir da pasta do repositório:
 
 ```powershell
-& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --no-pdf-header-footer --virtual-time-budget=15000 "--print-to-pdf=$PWD\AUVP Escola - 2026.pdf" "$PWD\pdf\guia-auvp-escola.htm"
+& "C:Program FilesGoogleChromeApplicationchrome.exe" --headless --no-pdf-header-footer --virtual-time-budget=15000 "--print-to-pdf=$env:TEMPeco.pdf" "$PWDpdfecossistema.htm"
+npm i --no-save --prefix "$env:TEMPpdflib" pdf-lib@1.17.1
+$env:NODE_PATH = "$env:TEMPpdflib
+ode_modules"
+node pdf/troca-pagina.js "AUVP Escola.pdf" "$env:TEMPeco.pdf" 3
 ```
 
-Ou abra o `pdf/guia-auvp-escola.htm` no Chrome, `Ctrl+P` → Salvar como PDF,
-com margens "Nenhuma" e "Gráficos de plano de fundo" marcado.
-
-- **Botão do WhatsApp (última página):** ainda sem link. Quando houver o número
-  do Closer, troque no fim do `guia-auvp-escola.htm` o `<span class="cta">` por
-  `<a class="cta" href="https://wa.me/55DDDNUMERO">` (e o `</span>` por `</a>`)
-  e gere o PDF de novo.
-- **Capa e fechamento** usam `pdf/img/capa-fundo.jpg` e `pdf/img/fecho-fundo.jpg`,
-  fotos com o escurecimento já aplicado. Não volte a pôr degradê transparente
-  por cima de foto: isso deixa o PDF lento para rolar.
+O `pdf/guia-auvp-escola.htm` (e o `AUVP Escola - 2026.pdf` gerado dele) é a
+versão anterior do guia, em fundo claro. O site não aponta mais para ele.
 
 ## Versões
 
