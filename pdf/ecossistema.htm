@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>AUVP Escola - ecossistema (página 3 do PDF)</title>
+<!-- Fonte da página 3 (Ecossistema) do "AUVP Escola.pdf".
+     O resto do PDF não tem fonte neste repositório: esta página é impressa
+     sozinha em A4 e trocada dentro do PDF pelo pdf/troca-pagina.js (ver README).
+     A página mostra as duas áreas de atuação separadas de propósito:
+     a AUVP Escola como protagonista (moldura dourada, foto, tudo o que vem
+     com ela) e a AUVP Capital & Banking como apoio, em tons neutros. -->
+<link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Satoshi';src:url('../fonts/Satoshi-Variable.woff2') format('woff2');font-weight:300 900}
+@page{size:A4;margin:0}
+:root{
+  --gold:#EFBF4E;--gold-deep:#B8860B;--noite:#0E0E10;--chapa:#18181B;--chapa2:#141416;--linha:#2E2E33;
+  --txt2:#B4B4BC;--txt3:#8B8B93;
+  --display:'Anek Latin',system-ui,sans-serif;--corpo:'Satoshi',system-ui,sans-serif;--cta:'Sora',var(--corpo);
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:var(--noite);color:#fff;font-family:var(--corpo);font-size:9.6pt;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;margin:0;line-height:1.05}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+/* só cores chapadas, sem transparência nem sombra: o PDF continua leve */
+.pg{position:relative;width:210mm;height:297mm;overflow:hidden;padding:15mm 18mm 16mm;background:var(--noite)}
+
+/* ---------- topo ---------- */
+.topo{display:grid;grid-template-columns:1fr 30mm;gap:8mm;align-items:start}
+.titulo{font-size:25pt;font-weight:700;max-width:140mm}
+.titulo .d{color:var(--gold)}
+.lead{margin-top:3.5mm;font-size:10pt;line-height:1.55;color:#A1A1AA;max-width:132mm}
+.marca{display:flex;flex-direction:column;align-items:center;gap:1.4mm;padding-top:1mm}
+.marca img{width:30mm}
+
+/* ---------- cabeçalho de cada área ---------- */
+.area-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:6mm;margin-bottom:3.2mm}
+.area-cab .num{font-family:var(--cta);font-weight:700;font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase}
+.area-cab h2{font-size:17pt;font-weight:700;margin-top:1.2mm}
+.area-cab h2 span{font-size:11pt;font-weight:600;color:var(--txt2)}
+.capital .area-cab h2{font-size:12.5pt;color:#E4E4E7}
+.capital .area-cab h2 span{font-size:9.5pt;color:var(--txt3)}
+.area-cab .sub{font-size:8.4pt;color:var(--txt3);text-align:right;max-width:70mm}
+
+/* ---------- área 01: AUVP Escola (protagonista) ---------- */
+.escola{margin-top:6.5mm}
+.escola .area-cab .num{color:var(--gold)}
+.escola-bloco{border:1.5pt solid var(--gold);background:#1C1808}
+.escola-topo{display:grid;grid-template-columns:66mm 1fr}
+.escola-foto{position:relative;min-height:54mm;background:#000 url('img/aula.jpg') 0% 35%/165% auto no-repeat}
+.selo{position:absolute;right:3.5mm;top:3.5mm;padding:1.2mm 2.4mm;background:var(--gold);color:#18181B;font-family:var(--cta);font-weight:700;font-size:6pt;letter-spacing:.12em;text-transform:uppercase}
+.escola-txt{padding:5.5mm 6mm 5mm;display:flex;flex-direction:column}
+.escola-txt .mote{margin-top:0;font-family:var(--display);font-weight:700;font-size:15pt;line-height:1.1;color:var(--gold)}
+.escola-txt p{margin-top:2mm;font-size:9.2pt;line-height:1.55;color:#E4E4E7}
+.link{display:inline-block;margin-top:auto;padding-top:3mm;font-family:var(--cta);font-weight:600;font-size:6.6pt;letter-spacing:.03em;color:var(--gold)}
+.link::after{content:" ↗"}
+/* o que vem junto com a Escola: dentro da mesma moldura */
+.inclui{border-top:1px solid #4A3C14;padding:4.2mm 5mm 4.6mm}
+.inclui-tit{font-family:var(--cta);font-weight:700;font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3mm}
+.inclui-grade{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.item{display:flex;flex-direction:column;padding:3.2mm 3.2mm 3mm;background:#26200C;border-top:1.5pt solid var(--gold)}
+.item i{width:7mm;height:7mm;display:grid;place-items:center;background:#3A3010;color:var(--gold);margin-bottom:2.2mm}
+.item i svg,.serv i svg{width:4.2mm;height:4.2mm;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.item b{font-family:var(--display);font-weight:700;font-size:9.6pt;line-height:1.15}
+.item p{margin-top:1mm;font-size:7.2pt;line-height:1.42;color:var(--txt2)}
+.item .link{font-size:5.8pt}
+
+/* ---------- divisa entre as áreas ---------- */
+.divisa{display:flex;align-items:center;gap:4mm;margin:6.5mm 0 5mm;color:var(--txt3);font-family:var(--cta);font-weight:600;font-size:6.6pt;letter-spacing:.12em;text-transform:uppercase}
+.divisa::before,.divisa::after{content:"";flex:1;height:1px;background:var(--linha)}
+
+/* ---------- área 02: AUVP Capital & Banking (apoio, neutra) ---------- */
+.capital .area-cab .num{color:var(--txt3)}
+.colunas{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.col-tit{font-family:var(--cta);font-weight:700;font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--txt2);padding-bottom:1.6mm;border-bottom:1px solid var(--linha);margin-bottom:1.4mm}
+.serv{display:grid;grid-template-columns:6.4mm 1fr auto;gap:2.8mm;align-items:center;padding:1.7mm 0;border-bottom:1px solid #1F1F23}
+.serv:last-child{border-bottom:0}
+.serv i{width:6.4mm;height:6.4mm;display:grid;place-items:center;background:var(--chapa);border:1px solid var(--linha);color:#D4D4D8}
+.serv i svg{width:3.6mm;height:3.6mm}
+.serv b{display:block;font-family:var(--display);font-weight:700;font-size:9pt;line-height:1.15}
+.serv p{font-size:7pt;line-height:1.38;color:var(--txt3)}
+.serv u{text-decoration:none;font-family:var(--cta);font-weight:600;font-size:5.6pt;color:var(--txt2);white-space:nowrap}
+.serv u::after{content:" ↗"}
+
+.pe{position:absolute;left:18mm;right:18mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center}
+.pe img{height:4.2mm}
+.pe .n{font-family:var(--cta);font-weight:600;font-size:6.5pt;letter-spacing:.14em;color:#71717A}
+.nota{margin-left:auto;margin-right:8mm;font-size:6.6pt;color:#71717A}
+</style>
+</head>
+<body>
+<section class="pg">
+
+  <div class="topo">
+    <div>
+      <h2 class="titulo">Pensou em dinheiro, <span class="d">pensou na AUVP.</span></h2>
+      <p class="lead">Muito além de um treinamento: a AUVP atua em duas frentes que se completam. Na <b style="color:#fff">AUVP Escola</b> você aprende a investir; na <b style="color:#fff">AUVP Capital &amp; Banking</b>, cuidamos da sua vida financeira.</p>
+    </div>
+    <div class="marca"><img src="../logos/auvp-dourado.svg" alt="AUVP"></div>
+  </div>
+
+  <!-- ÁREA 01 -->
+  <div class="escola">
+    <div class="area-cab">
+      <div><p class="num">Área 01 · Educação</p><h2>AUVP Escola <span>· Você aprende na prática</span></h2></div>
+    </div>
+    <div class="escola-bloco">
+      <a class="escola-topo" href="https://www.auvp.com.br/">
+        <div class="escola-foto"><span class="selo">Você está aqui</span></div>
+        <div class="escola-txt">
+          <p class="mote">Nosso treinamento completo para ir do zero à liberdade financeira.</p>
+          <p>Mais de 100 aulas para assistir no seu ritmo, com material de apoio, ferramentas e gente para tirar dúvida do lado.</p>
+          <span class="link">auvp.com.br</span>
+        </div>
+      </a>
+      <div class="inclui">
+        <p class="inclui-tit">Junto com a Escola, você também tem</p>
+        <div class="inclui-grade">
+          <a class="item" href="https://www.auvp.com.br/#modulos-avancados"><i><svg viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg></i><b>Módulos Avançados</b><p>Análise de Setores, Geopolítica, Indicadores e Aulas Técnicas.</p><span class="link">auvp.com.br</span></a>
+          <a class="item" href="https://www.auvp.com.br/#modulos-avancados"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i><b>Módulo Internacional</b><p>Renda fixa internacional, stocks, REITs e Private Equity.</p><span class="link">auvp.com.br</span></a>
+          <a class="item" href="https://www.auvp.com.br/#auvp-methodology-section"><i><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i><b>Ferramentas</b><p>Ferramentas próprias para seus estudos e a gestão da carteira.</p><span class="link">auvp.com.br</span></a>
+          <a class="item" href="https://comunidade.auvp.com.br/lives/"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z"/></svg></i><b>Atualização de Mercado</b><p>Ao vivo com Raul Sena, toda segunda-feira, às 19h.</p><span class="link">comunidade.auvp.com.br</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="divisa">E quando você quiser ir além do aprendizado</p>
+
+  <!-- ÁREA 02 -->
+  <div class="capital">
+    <div class="area-cab">
+      <div><p class="num">Área 02 · Serviços financeiros</p><h2>AUVP Capital &amp; Banking <span>· Nós cuidamos da sua vida financeira</span></h2></div>
+    </div>
+    <div class="colunas">
+      <div>
+        <p class="col-tit">Investimentos</p>
+        <a class="serv" href="https://auvpcapital.com.br/"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="m16 11 2 2 4-4"/></svg></i><div><b>Consultoria</b><p>Nº 1 no ranking do BTG Pactual, 2º ano seguido.</p></div><u>auvpcapital.com.br</u></a>
+        <a class="serv" href="https://auvpcapital.com.br/wealth"><i><svg viewBox="0 0 24 24"><path d="M6 3.5h12l4 6-10 11-10-11z"/><path d="M2 9.5h20M9.5 3.5 12 20.5l2.5-17"/></svg></i><div><b>Wealth</b><p>Blindagem patrimonial, governança e sucessão.</p></div><u>/wealth</u></a>
+        <a class="serv" href="https://www.auvpetfs.com.br/"><i><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i><div><b>ETFs próprios</b><p>AUVP11, AUPO11, AREA11 e ABTC11.</p></div><u>auvpetfs.com.br</u></a>
+      </div>
+      <div>
+        <p class="col-tit">Banking</p>
+        <a class="serv" href="https://www.auvp.com.br/#ecosys-highlight"><i><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.4"/><path d="M2.5 9.6h19M6 14.8h3.6"/></svg></i><div><b>Conta com cartão próprio</b><p>Conta, cartão e atendimento 100% AUVP.*</p></div><u>auvp.com.br</u></a>
+        <a class="serv" href="https://auvpcapital.com.br/credito"><i><svg viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg></i><div><b>Crédito</b><p>Mais de 20 bancos, sem liquidar investimentos.</p></div><u>/credito</u></a>
+        <a class="serv" href="https://auvpcapital.com.br/cambio"><i><svg viewBox="0 0 24 24"><path d="M4 8h15l-3.5-3.5"/><path d="M20 16H5l3.5 3.5"/></svg></i><div><b>Câmbio</b><p>Envie, receba ou invista no exterior.</p></div><u>/cambio</u></a>
+        <a class="serv" href="https://auvpcapital.com.br/seguros/"><i><svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></i><div><b>Seguros</b><p>Cotação justa, sem viés de interesse.</p></div><u>/seguros</u></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pe">
+    <img src="../logos/auvp-dourado.svg" alt="AUVP">
+    <span class="nota">* Sujeito a análise de crédito.</span>
+    <span class="n">03</span>
+  </div>
+</section>
+</body>
+</html>
