@@ -424,14 +424,13 @@ a.foto.capa.play:hover::after{transform:translate(-50%,-58%) scale(1.08)}
 .eco-topo h1{margin:8px auto 0;font-family:var(--display);font-weight:600;font-size:clamp(20px,2vw,26px);color:var(--tinta2);max-width:none}
 /* ---------- ecossistema: a marca no centro, os produtos em volta ---------- */
 /* a frente da Escola é a protagonista: satélites maiores e o mote em
-   dourado. A frente Banking fica de apoio, um pouco menor e mais
-   apagada, e volta à cor plena no cursor. */
+   dourado. A frente Banking fica de apoio, um pouco menor e com as fotos
+   mais apagadas (os nomes seguem em cor plena), e volta ao normal no cursor. */
 .eco-frente.foco{--sat:calc(var(--sat0)*1.12)}
 .eco-frente.apoio{--sat:calc(var(--sat0)*.88)}
 .eco-frente.foco .eco-disco b{color:var(--gold)}
 .eco-frente.apoio .eorb-img{filter:saturate(.55) brightness(.82);transition:transform .22s var(--mola),box-shadow .22s,filter .3s}
 .eco-frente.apoio .eorb:hover .eorb-img{filter:none}
-.eco-frente.apoio .eorb b{color:var(--tinta2)}
 /* card em destaque (a Escola): maior que os demais no anel, com traçado
    dourado fixo. O traçado é outline, e não box-shadow, justamente para
    não disputar a propriedade com o hover - assim o card cresce e brilha
