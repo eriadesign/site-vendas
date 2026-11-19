@@ -21,11 +21,10 @@ Para mudar o ecossistema, edite `pdf/ecossistema.htm` e rode no PowerShell, a
 partir da pasta do repositório:
 
 ```powershell
-& "C:Program FilesGoogleChromeApplicationchrome.exe" --headless --no-pdf-header-footer --virtual-time-budget=15000 "--print-to-pdf=$env:TEMPeco.pdf" "$PWDpdfecossistema.htm"
-npm i --no-save --prefix "$env:TEMPpdflib" pdf-lib@1.17.1
-$env:NODE_PATH = "$env:TEMPpdflib
-ode_modules"
-node pdf/troca-pagina.js "AUVP Escola.pdf" "$env:TEMPeco.pdf" 3
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --no-pdf-header-footer --virtual-time-budget=15000 "--print-to-pdf=$env:TEMP\eco.pdf" "$PWD\pdf\ecossistema.htm"
+npm i --no-save --prefix "$env:TEMP\pdflib" pdf-lib@1.17.1
+$env:NODE_PATH = "$env:TEMP\pdflib\node_modules"
+node pdf/troca-pagina.js "AUVP Escola.pdf" "$env:TEMP\eco.pdf" 3
 ```
 
 O `pdf/guia-auvp-escola.htm` (e o `AUVP Escola - 2026.pdf` gerado dele) é a
